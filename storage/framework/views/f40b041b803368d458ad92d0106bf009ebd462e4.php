@@ -11,31 +11,41 @@
     <?php echo e(Breadcrumbs::render('blog_posts_tag', $tag->title)); ?>
 
     <!-- Breadcrumb:end -->
-    <div class="row">
+    <div class="row mb-4">
         <div class="col-lg-8">
             <!-- Post list:start -->
             <?php $__empty_1 = true; $__currentLoopData = $posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-                <div class="card mb-4">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <!-- tumbnail -->
-                                <?php if(file_exists(public_path($post->thumbnail))): ?>
-                                    <img class="card-img-top" src="<?php echo e(asset($post->thumbnail)); ?>"
-                                        alt="<?php echo e($post->title); ?>">
-                                <?php else: ?>
-                                    <img class="img-fluid rounded" src="http://placehold.it/750x300"
-                                        alt="<?php echo e($post->title); ?>">
-                                <?php endif; ?>
-                            </div>
-                            <div class="col-lg-6">
-                                <h2 class="card-title"><?php echo e($post->title); ?></h2>
-                                <p class="card-text"><?php echo e($post->description); ?></p>
-                                <a href="<?php echo e(route('blog.posts.detail', ['slug' => $post->slug])); ?>"
-                                    class="btn btn-primary">
-                                    <?php echo e(trans('blog.button.read_more.value')); ?>
+                <div class="card shadow-sm mb-3">
+                    <div class="row no-gutters">
+                        <div class="col-md-5">
+                            <?php if(file_exists(public_path($post->thumbnail))): ?>
+                                <img class="card-img-top h-100" src="<?php echo e(asset($post->thumbnail)); ?>"
+                                    alt="<?php echo e($post->title); ?>">
+                            <?php else: ?>
+                                <img class="card-img-top h-100" src="<?php echo e(asset('vendor/my-blog/img/no_img.png')); ?>"
+                                    alt="<?php echo e($post->title); ?>">
+                            <?php endif; ?>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="<?php echo e(route('blog.posts.detail', ['slug' => $post->slug])); ?>"
+                                        class="text-gray-900">
+                                        <?php echo e($post->title); ?>
 
-                                </a>
+                                    </a>
+                                </h5>
+                                <p class="card-text text-gray-900"><?php echo e($post->description); ?></p>
+                                <p class="card-text text-gray-700">
+                                    <small class="mr-1">
+                                        <i class="fas fa-user"></i> <?php echo e($post->user->name); ?>
+
+                                    </small>
+                                    <small>
+                                        <i class="fas fa-clock"></i> <?php echo e(Helper::date_since($post->created_at)); ?>
+
+                                    </small>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -51,8 +61,8 @@
         </div>
         <div class="col-md-4">
             <!-- Tags list:start -->
-            <div class="card mb-1">
-                <h5 class="card-header">
+            <div class="card shadow-sm mb-1">
+                <h5 class="card-header bg-white text-gray-800">
                     <?php echo e(trans('blog.widget.tags')); ?>
 
                 </h5>
@@ -78,5 +88,17 @@
         </div>
     <?php endif; ?>
 <?php $__env->stopSection(); ?>
+
+<?php $__env->startPush('css-internal'); ?>
+    <style>
+        .card-img-top {
+            /* height: 400px; */
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+    </style>
+<?php $__env->stopPush(); ?>
 
 <?php echo $__env->make('layouts.blog', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\PROGRAMMING\FunCode\infinity15\resources\views/blog/posts-tag.blade.php ENDPATH**/ ?>

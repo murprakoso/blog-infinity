@@ -29,7 +29,8 @@
                         <div class="col-md-7">
                             <div class="card-body">
                                 <h5 class="card-title">
-                                    <a href="<?php echo e(route('blog.posts.detail', ['slug' => $post->slug])); ?>">
+                                    <a href="<?php echo e(route('blog.posts.detail', ['slug' => $post->slug])); ?>"
+                                        class="text-gray-900">
                                         <?php echo e($post->title); ?>
 
                                     </a>
