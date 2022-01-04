@@ -23,16 +23,16 @@
                         <img class="card-img-top img-categories" src="{{ asset($category->thumbnail) }}"
                             alt="{{ $category->title }}">
                     @else
-                        <img class="card-img-top img-categories" src="http://placehold.it/750x300"
+                        <img class="card-img-top img-categories" src="{{ asset('vendor/my-blog/img/no_img.png') }}"
                             alt="{{ $category->title }}">
                     @endif
                     <!-- thumbnail:end -->
                     <div class="card-body">
-                        <h4 class="card-title">
+                        <h5 class="card-title">
                             <a href="{{ route('blog.posts.category', ['slug' => $category->slug]) }}">
                                 {{ $category->title }}
                             </a>
-                        </h4>
+                        </h5>
                         <p class="card-text">
                             {{ $category->description }}
                         </p>

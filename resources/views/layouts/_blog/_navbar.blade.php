@@ -11,7 +11,7 @@
         </button>
         <div class="collapse navbar-collapse font-weight-bold" id="navbarResponsive">
             <!-- Search for post:end -->
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav ml-auto text-gray-900">
                 <!-- nav-home:start -->
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('blog.home') }}">

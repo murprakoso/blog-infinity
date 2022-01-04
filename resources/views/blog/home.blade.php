@@ -11,44 +11,55 @@
     {{ Breadcrumbs::render('blog_home') }}
     <!-- Breadcrumbs:end -->
 
+    <!-- List posts -->
     <div class="row">
-        <div class="col">
-            <!-- Post list:start -->
-            @forelse ($posts as $post)
-                <div class="card mb-4">
+        @forelse ($posts as $post)
+            <!-- true -->
+            <div class="col-lg-4 col-sm-6 portfolio-item">
+                <div class="card shadow-sm h-100">
+                    <!-- thumbnail:start -->
+                    @if (file_exists(public_path($post->thumbnail)))
+                        <img class="card-img-top img-posts" src="{{ asset($post->thumbnail) }}" alt="{{ $post->title }}">
+                    @else
+                        <img class="card-img-top img-posts" src="{{ asset('vendor/my-blog/img/no_img.png') }}"
+                            alt="{{ $post->title }}">
+                    @endif
+                    <!-- thumbnail:end -->
                     <div class="card-body">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <!-- thumbnail:start -->
-                                @if (file_exists(public_path($post->thumbnail)))
-                                    <img class="card-img-top img-posts" src="{{ asset($post->thumbnail) }}"
-                                        alt="{{ $post->title }}">
-                                @else
-                                    <img class="img-fluid rounded" src="http://placehold.it/750x300"
-                                        alt="{{ $post->title }}">
-                                @endif
-                                <!-- thumbnail:end -->
-                            </div>
-                            <div class="col-lg-6">
-                                <h2 class="card-title">{{ $post->title }}</h2>
-                                <p class="card-text">{{ $post->description }}</p>
-                                <a href="{{ route('blog.posts.detail', ['slug' => $post->slug]) }}"
-                                    class="btn btn-primary">
-                                    {{ trans('blog.button.read_more.value') }}
+                        <h5 class="card-title">
+                            <a href="{{ route('blog.posts.category', ['slug' => $post->slug]) }}" class="text-gray-900">
+                                {{ $post->title }}
+                            </a>
+                        </h5>
+                        <p class="card-text">
+                            @foreach ($post->categories as $categories)
+                                <a href="" class="btn btn-sm btn-light">
+                                    {{ $categories->title }}
                                 </a>
-                            </div>
+                            @endforeach
+                        </p>
+                        <p class="card-text">
+                            {{ $post->description }}
+                        </p>
+                        <div class="card-text">
+                            <small class="mr-1">
+                                <i class="fas fa-user"></i> {{ $post->user->name }}
+                            </small>
+                            <small>
+                                <i class="fas fa-clock"></i> {{ Helper::date_since($post->created_at) }}
+                            </small>
                         </div>
                     </div>
                 </div>
-            @empty
-                <!-- empty -->
-                <h3 class="text-center">
-                    {{ trans('blog.no_data.posts') }}
-                </h3>
-                <!-- Post list:end -->
-            @endforelse
-        </div>
+            </div>
+        @empty
+            <!-- false -->
+            <h3 class="text-center">
+                {{ trans('blog.no_data.categories') }}
+            </h3>
+        @endforelse
     </div>
+    <!-- List posts -->
 
     <!-- pagination:start -->
     @if ($posts->hasPages())

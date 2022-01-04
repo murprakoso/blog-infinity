@@ -23,17 +23,17 @@
                         <img class="card-img-top img-categories" src="<?php echo e(asset($category->thumbnail)); ?>"
                             alt="<?php echo e($category->title); ?>">
                     <?php else: ?>
-                        <img class="card-img-top img-categories" src="http://placehold.it/750x300"
+                        <img class="card-img-top img-categories" src="<?php echo e(asset('vendor/my-blog/img/no_img.png')); ?>"
                             alt="<?php echo e($category->title); ?>">
                     <?php endif; ?>
                     <!-- thumbnail:end -->
                     <div class="card-body">
-                        <h4 class="card-title">
+                        <h5 class="card-title">
                             <a href="<?php echo e(route('blog.posts.category', ['slug' => $category->slug])); ?>">
                                 <?php echo e($category->title); ?>
 
                             </a>
-                        </h4>
+                        </h5>
                         <p class="card-text">
                             <?php echo e($category->description); ?>
 

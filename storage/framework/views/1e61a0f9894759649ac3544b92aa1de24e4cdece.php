@@ -11,46 +11,61 @@
 
     <!-- Breadcrumbs:end -->
 
+    <!-- List posts -->
     <div class="row">
-        <div class="col">
-            <!-- Post list:start -->
-            <?php $__empty_1 = true; $__currentLoopData = $posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-                <div class="card mb-4">
+        <?php $__empty_1 = true; $__currentLoopData = $posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+            <!-- true -->
+            <div class="col-lg-4 col-sm-6 portfolio-item">
+                <div class="card shadow-sm h-100">
+                    <!-- thumbnail:start -->
+                    <?php if(file_exists(public_path($post->thumbnail))): ?>
+                        <img class="card-img-top img-posts" src="<?php echo e(asset($post->thumbnail)); ?>" alt="<?php echo e($post->title); ?>">
+                    <?php else: ?>
+                        <img class="card-img-top img-posts" src="<?php echo e(asset('vendor/my-blog/img/no_img.png')); ?>"
+                            alt="<?php echo e($post->title); ?>">
+                    <?php endif; ?>
+                    <!-- thumbnail:end -->
                     <div class="card-body">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <!-- thumbnail:start -->
-                                <?php if(file_exists(public_path($post->thumbnail))): ?>
-                                    <img class="card-img-top img-posts" src="<?php echo e(asset($post->thumbnail)); ?>"
-                                        alt="<?php echo e($post->title); ?>">
-                                <?php else: ?>
-                                    <img class="img-fluid rounded" src="http://placehold.it/750x300"
-                                        alt="<?php echo e($post->title); ?>">
-                                <?php endif; ?>
-                                <!-- thumbnail:end -->
-                            </div>
-                            <div class="col-lg-6">
-                                <h2 class="card-title"><?php echo e($post->title); ?></h2>
-                                <p class="card-text"><?php echo e($post->description); ?></p>
-                                <a href="<?php echo e(route('blog.posts.detail', ['slug' => $post->slug])); ?>"
-                                    class="btn btn-primary">
-                                    <?php echo e(trans('blog.button.read_more.value')); ?>
+                        <h5 class="card-title">
+                            <a href="<?php echo e(route('blog.posts.category', ['slug' => $post->slug])); ?>" class="text-gray-900">
+                                <?php echo e($post->title); ?>
+
+                            </a>
+                        </h5>
+                        <p class="card-text">
+                            <?php $__currentLoopData = $post->categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $categories): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <a href="" class="btn btn-sm btn-light">
+                                    <?php echo e($categories->title); ?>
 
                                 </a>
-                            </div>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        </p>
+                        <p class="card-text">
+                            <?php echo e($post->description); ?>
+
+                        </p>
+                        <div class="card-text">
+                            <small class="mr-1">
+                                <i class="fas fa-user"></i> <?php echo e($post->user->name); ?>
+
+                            </small>
+                            <small>
+                                <i class="fas fa-clock"></i> <?php echo e(Helper::date_since($post->created_at)); ?>
+
+                            </small>
                         </div>
                     </div>
                 </div>
-            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
-                <!-- empty -->
-                <h3 class="text-center">
-                    <?php echo e(trans('blog.no_data.posts')); ?>
+            </div>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+            <!-- false -->
+            <h3 class="text-center">
+                <?php echo e(trans('blog.no_data.categories')); ?>
 
-                </h3>
-                <!-- Post list:end -->
-            <?php endif; ?>
-        </div>
+            </h3>
+        <?php endif; ?>
     </div>
+    <!-- List posts -->
 
     <!-- pagination:start -->
     <?php if($posts->hasPages()): ?>
