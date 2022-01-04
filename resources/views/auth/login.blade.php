@@ -25,7 +25,7 @@
                                         <input type="email" name="email"
                                             class="form-control form-control-user @error('email') is-invalid @enderror"
                                             id="exampleInputEmail" aria-describedby="emailHelp"
-                                            placeholder="Enter Email Address..." value="{{ old('email') }}">
+                                            placeholder="Enter Email Address.." value="{{ old('email') }}">
                                         @error('email')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -35,7 +35,7 @@
                                     <div class="form-group">
                                         <input type="password" name="password"
                                             class="form-control form-control-user @error('password') is-invalid @enderror"
-                                            id="exampleInputPassword" placeholder="Password">
+                                            id="exampleInputPassword" placeholder="Password..">
                                         @error('password')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
