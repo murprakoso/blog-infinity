@@ -10,23 +10,27 @@ use Illuminate\Http\Request;
 class BlogController extends Controller
 {
     protected $perPage = 2;
+    protected $blogPerPage = 9;
+    protected $categoryPerPage = 9;
+    protected $tagPerPage = 20;
+    protected $searchPerPage = 10;
 
     /** Home */
     public function home()
     {
-        return view('blog.home', ['posts' => Post::publish()->latest()->paginate($this->perPage)]);
+        return view('blog.home', ['posts' => Post::publish()->latest()->paginate($this->blogPerPage)]);
     }
 
     /** Categories */
     public function showCategories()
     {
-        return view('blog.categories', ['categories' => Category::onlyParent()->paginate($this->perPage)]);
+        return view('blog.categories', ['categories' => Category::onlyParent()->paginate($this->categoryPerPage)]);
     }
 
     /** Tags */
     public function showTags()
     {
-        return view('blog.tags', ['tags' => Tag::paginate($this->perPage)]);
+        return view('blog.tags', ['tags' => Tag::paginate($this->tagPerPage)]);
     }
 
     /** Search post */
@@ -37,7 +41,7 @@ class BlogController extends Controller
         }
 
         return view('blog.search-post', [
-            'posts' => Post::publish()->search($request->keyword)->paginate($this->perPage)->appends(['keyword' => $request->keyword])
+            'posts' => Post::publish()->search($request->keyword)->paginate($this->searchPerPage)->appends(['keyword' => $request->keyword])
         ]);
     }
 
@@ -46,7 +50,7 @@ class BlogController extends Controller
     {
         $posts = Post::publish()->whereHas('categories', function ($query) use ($slug) {
             return $query->where('slug', $slug);
-        })->paginate($this->perPage);
+        })->paginate($this->searchPerPage);
 
         $category = Category::where('slug', $slug)->first();
         $categoryRoot = $category->root();
@@ -64,7 +68,7 @@ class BlogController extends Controller
     {
         $posts = Post::publish()->whereHas('tags', function ($query) use ($slug) {
             return $query->where('slug', $slug);
-        })->paginate($this->perPage);
+        })->paginate($this->searchPerPage);
 
         $tag = Tag::where('slug', $slug)->first();
         $tags = Tag::search($tag->title)->get();
