@@ -55,8 +55,7 @@
                 </h5>
                 <div class="card-body">
                     @foreach ($tags as $tag)
-                        <a href="{{ route('blog.posts.tag', ['slug' => $tag->slug]) }}"
-                            class="badge badge-info py-3 px-5 m-1">
+                        <a href="{{ route('blog.posts.tag', ['slug' => $tag->slug]) }}" class="btn btn-light btn-sm">
                             #{{ $tag->title }}
                         </a>
                     @endforeach

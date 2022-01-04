@@ -58,8 +58,7 @@
                 </h5>
                 <div class="card-body">
                     <?php $__currentLoopData = $tags; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tag): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <a href="<?php echo e(route('blog.posts.tag', ['slug' => $tag->slug])); ?>"
-                            class="badge badge-info py-3 px-5 m-1">
+                        <a href="<?php echo e(route('blog.posts.tag', ['slug' => $tag->slug])); ?>" class="btn btn-light btn-sm">
                             #<?php echo e($tag->title); ?>
 
                         </a>

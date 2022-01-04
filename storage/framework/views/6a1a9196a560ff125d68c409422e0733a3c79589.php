@@ -15,7 +15,7 @@
         <div class="col">
             <?php $__empty_1 = true; $__currentLoopData = $tags; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tag): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                 <a href="<?php echo e(route('blog.posts.tag', ['slug' => $tag->slug])); ?>"
-                    class="badge badge-info py-3 px-5 mb-2">#<?php echo e($tag->title); ?></a>
+                    class="btn btn-light btn-sm">#<?php echo e($tag->title); ?></a>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                 <h3 class="text-center">
                     <?php echo e(trans('blog.no_data.tags')); ?>
