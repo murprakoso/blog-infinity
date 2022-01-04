@@ -32,6 +32,11 @@ class Helper
         return $dt->diffForHumans();
     }
 
+    public static function date_post($timestamp)
+    {
+        return Carbon::parse($timestamp)->isoFormat('MMMM D, YYYY');
+    }
+
     /** delete file directory */
     public static function rrmdir($dir)
     {

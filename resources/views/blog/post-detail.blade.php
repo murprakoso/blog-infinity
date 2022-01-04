@@ -26,6 +26,10 @@
             @endif
             <!-- thumbnail:end -->
             <hr>
+            <div class="text-gray-800">
+                Last updated on: {{ Helper::date_post($post->created_at) }} by {{ $post->user->name }}
+            </div>
+            <hr>
             <!-- Post Content:start -->
             <div class="text-gray-800">
                 {!! $post->content !!}

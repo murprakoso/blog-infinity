@@ -26,6 +26,11 @@
             <?php endif; ?>
             <!-- thumbnail:end -->
             <hr>
+            <div class="text-gray-800">
+                Last updated on: <?php echo e(Helper::date_post($post->created_at)); ?> by <?php echo e($post->user->name); ?>
+
+            </div>
+            <hr>
             <!-- Post Content:start -->
             <div class="text-gray-800">
                 <?php echo $post->content; ?>
