@@ -27,7 +27,7 @@
 
     <!-- pagination:start -->
     @if ($tags->hasPages())
-        <div class="row">
+        <div class="row mb-5">
             <div class="col">
                 {{ $tags->links('vendor.pagination.bootstrap-4') }}
             </div>

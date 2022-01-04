@@ -27,7 +27,7 @@
                     <!-- thumbnail:end -->
                     <div class="card-body">
                         <h5 class="card-title">
-                            <a href="<?php echo e(route('blog.posts.category', ['slug' => $post->slug])); ?>" class="text-gray-900">
+                            <a href="<?php echo e(route('blog.posts.detail', ['slug' => $post->slug])); ?>" class="text-gray-900">
                                 <?php echo e($post->title); ?>
 
                             </a>
@@ -69,7 +69,7 @@
 
     <!-- pagination:start -->
     <?php if($posts->hasPages()): ?>
-        <div class="row">
+        <div class="row mb-5">
             <div class="col">
                 <?php echo e($posts->links('vendor.pagination.bootstrap-4')); ?>
 

@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
-    protected $perPage = 20;
+    protected $perPage = 2;
 
     /** Home */
     public function home()
@@ -54,7 +54,8 @@ class BlogController extends Controller
         return view('blog.posts-category', [
             'posts' => $posts,
             'category' => $category,
-            'categoryRoot' => $categoryRoot
+            'categoryRoot' => $categoryRoot,
+            'latestPosts' => Post::publish()->latest()->limit(5)->get()
         ]);
     }
 

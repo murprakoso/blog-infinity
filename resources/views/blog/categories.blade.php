@@ -50,7 +50,7 @@
 
     <!-- pagination:start -->
     @if ($categories->hasPages())
-        <div class="row">
+        <div class="row mb-5">
             <div class="col">
                 {{ $categories->links('vendor.pagination.bootstrap-4') }}
             </div>

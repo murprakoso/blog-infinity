@@ -11,7 +11,7 @@
     <?php echo e(Breadcrumbs::render('blog_posts_category', $category->title)); ?>
 
     <!-- Breadcrumb:end -->
-    <div class="row">
+    <div class="row mb-4">
         <div class="col-lg-8">
             <!-- Post list:start -->
             <?php $__empty_1 = true; $__currentLoopData = $posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
@@ -19,7 +19,7 @@
                     <div class="row no-gutters">
                         <div class="col-md-5">
                             <?php if(file_exists(public_path($post->thumbnail))): ?>
-                                <img class="card-img-top h-100" src="<?php echo e(asset($post->thumbnail)); ?>"
+                                <img class="card-img-top card-img-bottom h-100" src="<?php echo e(asset($post->thumbnail)); ?>"
                                     alt="<?php echo e($post->title); ?>">
                             <?php else: ?>
                                 <img class="card-img-top h-100" src="<?php echo e(asset('vendor/my-blog/img/no_img.png')); ?>"
@@ -58,11 +58,20 @@
                 </h3>
             <?php endif; ?>
             <!-- Post list:end -->
+
+            <?php if($posts->hasPages()): ?>
+                <div class="row mb-4">
+                    <div class="col">
+                        <?php echo e($posts->links('vendor.pagination.bootstrap-4')); ?>
+
+                    </div>
+                </div>
+            <?php endif; ?>
         </div>
         <div class="col-md-4">
             <!-- Categories list:start -->
-            <div class="card mb-1">
-                <h5 class="card-header">
+            <div class="card shadow-sm mb-3">
+                <h5 class="card-header bg-white text-gray-900">
                     <?php echo e(trans('blog.widget.categories')); ?>
 
                 </h5>
@@ -91,17 +100,31 @@
                 </div>
             </div>
             <!-- Categories list:end -->
+
+            
+            <div class="card bg-white shadow-sm mb-3">
+                <h5 class="card-header bg-white text-gray-900">
+                    <?php echo e(trans('blog.widget.latest_posts')); ?>
+
+                </h5>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <?php $__currentLoopData = $latestPosts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $lPost): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <li class="list-group-item px-0">
+                                <a href="<?php echo e(route('blog.posts.detail', ['slug' => $lPost->slug])); ?>"
+                                    class="text-gray-900">
+                                    <?php echo e($lPost->title); ?>
+
+                                </a>
+                            </li>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    </ul>
+                </div>
+            </div>
+            
+
         </div>
     </div>
-
-    <?php if($posts->hasPages()): ?>
-        <div class="row">
-            <div class="col">
-                <?php echo e($posts->links('vendor.pagination.bootstrap-4')); ?>
-
-            </div>
-        </div>
-    <?php endif; ?>
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startPush('css-internal'); ?>

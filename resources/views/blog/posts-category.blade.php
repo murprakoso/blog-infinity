@@ -11,7 +11,7 @@
     <!-- Breadcrumb:start -->
     {{ Breadcrumbs::render('blog_posts_category', $category->title) }}
     <!-- Breadcrumb:end -->
-    <div class="row">
+    <div class="row mb-4">
         <div class="col-lg-8">
             <!-- Post list:start -->
             @forelse ($posts as $post)
@@ -19,7 +19,7 @@
                     <div class="row no-gutters">
                         <div class="col-md-5">
                             @if (file_exists(public_path($post->thumbnail)))
-                                <img class="card-img-top h-100" src="{{ asset($post->thumbnail) }}"
+                                <img class="card-img-top card-img-bottom h-100" src="{{ asset($post->thumbnail) }}"
                                     alt="{{ $post->title }}">
                             @else
                                 <img class="card-img-top h-100" src="{{ asset('vendor/my-blog/img/no_img.png') }}"
@@ -54,11 +54,19 @@
                 </h3>
             @endforelse
             <!-- Post list:end -->
+
+            @if ($posts->hasPages())
+                <div class="row mb-4">
+                    <div class="col">
+                        {{ $posts->links('vendor.pagination.bootstrap-4') }}
+                    </div>
+                </div>
+            @endif
         </div>
         <div class="col-md-4">
             <!-- Categories list:start -->
-            <div class="card mb-1">
-                <h5 class="card-header">
+            <div class="card shadow-sm mb-3">
+                <h5 class="card-header bg-white text-gray-900">
                     {{ trans('blog.widget.categories') }}
                 </h5>
                 <div class="card-body">
@@ -84,16 +92,29 @@
                 </div>
             </div>
             <!-- Categories list:end -->
+
+            {{-- Side Widget latest-post:start --}}
+            <div class="card bg-white shadow-sm mb-3">
+                <h5 class="card-header bg-white text-gray-900">
+                    {{ trans('blog.widget.latest_posts') }}
+                </h5>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        @foreach ($latestPosts as $lPost)
+                            <li class="list-group-item px-0">
+                                <a href="{{ route('blog.posts.detail', ['slug' => $lPost->slug]) }}"
+                                    class="text-gray-900">
+                                    {{ $lPost->title }}
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+            {{-- Side Widget latest-post:end --}}
+
         </div>
     </div>
-
-    @if ($posts->hasPages())
-        <div class="row">
-            <div class="col">
-                {{ $posts->links('vendor.pagination.bootstrap-4') }}
-            </div>
-        </div>
-    @endif
 @endsection
 
 @push('css-internal')

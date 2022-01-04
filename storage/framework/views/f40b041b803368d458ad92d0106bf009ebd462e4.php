@@ -58,6 +58,15 @@
                 </h3>
             <?php endif; ?>
             <!-- Post list:end -->
+
+            <?php if($posts->hasPages()): ?>
+                <div class="row mb-5">
+                    <div class="col">
+                        <?php echo e($posts->links('vendor.pagination.bootstrap-4')); ?>
+
+                    </div>
+                </div>
+            <?php endif; ?>
         </div>
         <div class="col-md-4">
             <!-- Tags list:start -->
@@ -78,15 +87,6 @@
             <!-- Categories list:end -->
         </div>
     </div>
-
-    <?php if($posts->hasPages()): ?>
-        <div class="row">
-            <div class="col">
-                <?php echo e($posts->links('vendor.pagination.bootstrap-4')); ?>
-
-            </div>
-        </div>
-    <?php endif; ?>
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startPush('css-internal'); ?>

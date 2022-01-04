@@ -27,7 +27,7 @@
                     <!-- thumbnail:end -->
                     <div class="card-body">
                         <h5 class="card-title">
-                            <a href="{{ route('blog.posts.category', ['slug' => $post->slug]) }}" class="text-gray-900">
+                            <a href="{{ route('blog.posts.detail', ['slug' => $post->slug]) }}" class="text-gray-900">
                                 {{ $post->title }}
                             </a>
                         </h5>
@@ -63,7 +63,7 @@
 
     <!-- pagination:start -->
     @if ($posts->hasPages())
-        <div class="row">
+        <div class="row mb-5">
             <div class="col">
                 {{ $posts->links('vendor.pagination.bootstrap-4') }}
             </div>

@@ -61,11 +61,11 @@
                     <div class="dropdown-menu dropdown-menu-right shadow-nav border-0"
                         aria-labelledby="navbarDropdownPortfolio">
                         <a class="dropdown-item" href="<?php echo e(route('localization.switch', ['language' => 'id'])); ?>">
-                            <?php echo e(trans('localization.id')); ?>
+                            <i class="flag-icon flag-icon-id"></i> <?php echo e(trans('localization.id')); ?>
 
                         </a>
                         <a class="dropdown-item" href="<?php echo e(route('localization.switch', ['language' => 'en'])); ?>">
-                            <?php echo e(trans('localization.en')); ?>
+                            <i class="flag-icon flag-icon-gb"></i> <?php echo e(trans('localization.en')); ?>
 
                         </a>
                     </div>

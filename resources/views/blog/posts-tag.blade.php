@@ -54,6 +54,14 @@
                 </h3>
             @endforelse
             <!-- Post list:end -->
+
+            @if ($posts->hasPages())
+                <div class="row mb-5">
+                    <div class="col">
+                        {{ $posts->links('vendor.pagination.bootstrap-4') }}
+                    </div>
+                </div>
+            @endif
         </div>
         <div class="col-md-4">
             <!-- Tags list:start -->
@@ -72,14 +80,6 @@
             <!-- Categories list:end -->
         </div>
     </div>
-
-    @if ($posts->hasPages())
-        <div class="row">
-            <div class="col">
-                {{ $posts->links('vendor.pagination.bootstrap-4') }}
-            </div>
-        </div>
-    @endif
 @endsection
 
 @push('css-internal')

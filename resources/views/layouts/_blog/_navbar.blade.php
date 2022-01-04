@@ -57,10 +57,10 @@
                     <div class="dropdown-menu dropdown-menu-right shadow-nav border-0"
                         aria-labelledby="navbarDropdownPortfolio">
                         <a class="dropdown-item" href="{{ route('localization.switch', ['language' => 'id']) }}">
-                            {{ trans('localization.id') }}
+                            <i class="flag-icon flag-icon-id"></i> {{ trans('localization.id') }}
                         </a>
                         <a class="dropdown-item" href="{{ route('localization.switch', ['language' => 'en']) }}">
-                            {{ trans('localization.en') }}
+                            <i class="flag-icon flag-icon-gb"></i> {{ trans('localization.en') }}
                         </a>
                     </div>
                 </li>

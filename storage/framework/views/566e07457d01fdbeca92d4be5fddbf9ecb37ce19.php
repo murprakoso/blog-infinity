@@ -53,7 +53,7 @@
 
     <!-- pagination:start -->
     <?php if($categories->hasPages()): ?>
-        <div class="row">
+        <div class="row mb-5">
             <div class="col">
                 <?php echo e($categories->links('vendor.pagination.bootstrap-4')); ?>
 
