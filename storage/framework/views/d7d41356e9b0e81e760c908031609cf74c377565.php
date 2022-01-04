@@ -27,7 +27,7 @@
                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </select>
                                         <div class="input-group-append">
-                                            <button class="btn btn-light border"
+                                            <button class="btn btn-light border border-left-0"
                                                 type="submit"><?php echo e(trans('posts.button.apply.value')); ?></button>
                                         </div>
                                     </div>
@@ -80,9 +80,14 @@
 
                                     </p>
                                     <p>
-                                        <small>
+                                        <small class="mr-2">
                                             <i class="fas fa-user"></i>
                                             <?php echo e($post->user->name); ?>
+
+                                        </small>
+                                        <small>
+                                            <i class="fas fa-calendar-alt"></i>
+                                            <?php echo e(Helper::date_post($post->created_at)); ?>
 
                                         </small>
                                     </p>

@@ -27,10 +27,25 @@
             <!-- thumbnail:end -->
             <hr>
             <div class="text-gray-800">
-                Last updated on: <?php echo e(Helper::date_post($post->created_at)); ?> by <?php echo e($post->user->name); ?>
+                <small class="mr-2"><i class="fas fa-calendar"></i>
+                    <?php echo e(Helper::date_post($post->created_at)); ?>
 
+                </small>
+                <small><i class="fas fa-user"></i>
+                    <?php echo e($post->user->name); ?>
+
+                </small>
             </div>
             <hr>
+            <div class="mb-2">
+                <?php $__currentLoopData = $post->categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <a href="<?php echo e(route('blog.posts.category', ['slug' => $category->slug])); ?>"
+                        class="btn btn-sm btn-outline-primary">
+                        <?php echo e($category->title); ?>
+
+                    </a>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            </div>
             <!-- Post Content:start -->
             <div class="text-gray-800">
                 <?php echo $post->content; ?>

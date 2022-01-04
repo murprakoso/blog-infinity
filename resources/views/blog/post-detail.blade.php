@@ -27,9 +27,22 @@
             <!-- thumbnail:end -->
             <hr>
             <div class="text-gray-800">
-                Last updated on: {{ Helper::date_post($post->created_at) }} by {{ $post->user->name }}
+                <small class="mr-2"><i class="fas fa-calendar"></i>
+                    {{ Helper::date_post($post->created_at) }}
+                </small>
+                <small><i class="fas fa-user"></i>
+                    {{ $post->user->name }}
+                </small>
             </div>
             <hr>
+            <div class="mb-2">
+                @foreach ($post->categories as $category)
+                    <a href="{{ route('blog.posts.category', ['slug' => $category->slug]) }}"
+                        class="btn btn-sm btn-outline-primary">
+                        {{ $category->title }}
+                    </a>
+                @endforeach
+            </div>
             <!-- Post Content:start -->
             <div class="text-gray-800">
                 {!! $post->content !!}

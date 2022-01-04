@@ -27,7 +27,7 @@
                                             @endforeach
                                         </select>
                                         <div class="input-group-append">
-                                            <button class="btn btn-light border"
+                                            <button class="btn btn-light border border-left-0"
                                                 type="submit">{{ trans('posts.button.apply.value') }}</button>
                                         </div>
                                     </div>
@@ -77,9 +77,13 @@
                                         {{ $post->description }}
                                     </p>
                                     <p>
-                                        <small>
+                                        <small class="mr-2">
                                             <i class="fas fa-user"></i>
                                             {{ $post->user->name }}
+                                        </small>
+                                        <small>
+                                            <i class="fas fa-calendar-alt"></i>
+                                            {{ Helper::date_post($post->created_at) }}
                                         </small>
                                     </p>
                                     <div class="float-right">
