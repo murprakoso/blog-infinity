@@ -13,7 +13,7 @@
     
     <link href="<?php echo e(asset('vendor/bootstrap/css/bootstrap.min.css')); ?>" rel="stylesheet">
     
-    <link href="<?php echo e(asset('vendor/my-blog/css/blog.css')); ?>" rel="stylesheet">
+    <link href="<?php echo e(asset('vendor/my-blog/css/blog.min.css')); ?>" rel="stylesheet">
     <link href="<?php echo e(asset('vendor/dashboard/css/scrollbar.css')); ?>" rel="stylesheet">
     
     <script src="<?php echo e(asset('vendor/fontawesome-free/js/all.min.js')); ?>"></script>

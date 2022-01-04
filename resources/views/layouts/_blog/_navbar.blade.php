@@ -1,22 +1,15 @@
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white fixed-top shadow-nav">
     <div class="container">
-        <a class="navbar-brand" href="{{ route('blog.home') }}">{{ config('app.name') }}</a>
+        <a class="navbar-brand font-weight-bold text-gray-900" href="{{ route('blog.home') }}">
+            <i class="fas fa-laptop"></i>
+            {{ config('app.name') }}
+        </a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
             data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
             aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <!-- Search for post:start -->
-            <form class="input-group my-1" action="{{ route('blog.search') }}" method="GET">
-                <input name="keyword" value="{{ request()->get('keyword') }}" type="search" class="form-control"
-                    placeholder="{{ trans('blog.form_control.input.search.placeholder') }}">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="submit">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </div>
-            </form>
+        <div class="collapse navbar-collapse font-weight-bold" id="navbarResponsive">
             <!-- Search for post:end -->
             <ul class="navbar-nav ml-auto">
                 <!-- nav-home:start -->
@@ -39,39 +32,18 @@
                     </a>
                 </li>
                 <!-- nav-tags:end -->
-                <!-- Auth:start -->
-                @auth
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            {{ auth()->user()->name }}
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-                            <a class="dropdown-item" href="">
-                                {{ trans('blog.menu.dashboard') }}
-                            </a>
-                            <a class="dropdown-item" href=""
-                                onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                                {{ trans('blog.menu.logout') }}
-                            </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                <!-- csrf -->
-                                @csrf
-                            </form>
-                        </div>
-                    </li>
-                    <!-- Auth:else -->
-                @else
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">
-                            {{ trans('blog.menu.login') }}
-                        </a>
-                    </li>
-                @endauth
-                <!-- Auth:end -->
+
+                <!-- nav-categories:tags -->
+                <li class="nav-item">
+                    <a class="nav-link" type="button" data-toggle="modal" data-target="#search-modal">
+                        <i class="fas fa-search"></i>
+                    </a>
+                </li>
+                <!-- nav-tags:end -->
+
                 <!-- lang:start -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown"
+                    <a class="nav-link dropdown" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
                         @switch(app()->getLocale())
                             @case('id')
@@ -82,7 +54,8 @@
                             @break
                         @endswitch
                     </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
+                    <div class="dropdown-menu dropdown-menu-right shadow-nav border-0"
+                        aria-labelledby="navbarDropdownPortfolio">
                         <a class="dropdown-item" href="{{ route('localization.switch', ['language' => 'id']) }}">
                             {{ trans('localization.id') }}
                         </a>
@@ -92,7 +65,60 @@
                     </div>
                 </li>
                 <!-- lang:end -->
+
+                <!-- Auth:start -->
+                @auth
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            {{ auth()->user()->name }}
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right shadow-nav border-0"
+                            aria-labelledby="navbarDropdownPortfolio">
+                            <a class="dropdown-item" href="{{ route('dashboard.index') }}">
+                                {{ trans('blog.menu.dashboard') }}
+                            </a>
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                {{ trans('blog.menu.logout') }}
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                <!-- csrf -->
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
+                @endauth
+                <!-- Auth:end -->
             </ul>
         </div>
     </div>
 </nav>
+
+
+{{-- Modal:search --}}
+<div class="modal fade bd-example-modal-lg" id="search-modal" tabindex="-1" role="dialog" aria-labelledby="searcModal"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header border-bottom-0 pb-0">
+                <small>{{ trans('blog.form_control.input.search.label') }}</small>
+                <a type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </a>
+            </div>
+            <div class="modal-body pt-0">
+                <form class="input-group my-2" action="{{ route('blog.search') }}" method="GET">
+                    <input name="keyword" value="{{ request()->get('keyword') }}" type="search"
+                        class="form-control border-0 bg-light"
+                        placeholder="{{ trans('blog.form_control.input.search.placeholder') }}">
+                    <div class="input-group-append">
+                        <button class="btn btn-light" type="submit">
+                            <i class="fas fa-search fa-fw text-gray-600"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
