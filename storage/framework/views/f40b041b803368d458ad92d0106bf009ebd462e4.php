@@ -19,11 +19,11 @@
                     <div class="row no-gutters">
                         <div class="col-md-5">
                             <?php if(file_exists(public_path($post->thumbnail))): ?>
-                                <img class="card-img-top h-100" src="<?php echo e(asset($post->thumbnail)); ?>"
+                                <img class="card-img-top card-img-bottom h-100" src="<?php echo e(asset($post->thumbnail)); ?>"
                                     alt="<?php echo e($post->title); ?>">
                             <?php else: ?>
-                                <img class="card-img-top h-100" src="<?php echo e(asset('vendor/my-blog/img/no_img.png')); ?>"
-                                    alt="<?php echo e($post->title); ?>">
+                                <img class="card-img-top card-img-bottom h-100"
+                                    src="<?php echo e(asset('vendor/my-blog/img/no_img.png')); ?>" alt="<?php echo e($post->title); ?>">
                             <?php endif; ?>
                         </div>
                         <div class="col-md-7">

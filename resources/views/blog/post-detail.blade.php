@@ -19,7 +19,7 @@
         <div class="col-lg-8">
             <!-- thumbnail:start -->
             @if (file_exists(public_path($post->thumbnail)))
-                <img class="card-img-top" src="{{ asset($post->thumbnail) }}" alt="{{ $post->title }}">
+                <img class="card-img-top card-img-bottom" src="{{ asset($post->thumbnail) }}" alt="{{ $post->title }}">
             @else
                 <img class="img-fluid rounded" src="{{ asset('vendor/my-blog/img/no_img.png') }}"
                     alt="{{ $post->title }}">
@@ -50,7 +50,7 @@
                     <!-- category list:start -->
                     @foreach ($post->categories as $category)
                         <a href="{{ route('blog.posts.category', ['slug' => $category->slug]) }}"
-                            class="badge badge-primary py-2 px-4 my-1">
+                            class="btn btn-sm btn-outline-primary">
                             {{ $category->title }}
                         </a>
                     @endforeach
@@ -66,8 +66,7 @@
                 <div class="card-body">
                     <!-- tag list:start -->
                     @foreach ($post->tags as $tag)
-                        <a href="{{ route('blog.posts.tag', ['slug' => $tag->slug]) }}"
-                            class="badge badge-info py-2 px-4 my-1">
+                        <a href="{{ route('blog.posts.tag', ['slug' => $tag->slug]) }}" class="btn btn-sm btn-secondary">
                             #{{ $tag->title }}
                         </a>
                     @endforeach

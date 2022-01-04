@@ -19,11 +19,11 @@
                     <div class="row no-gutters">
                         <div class="col-md-5">
                             @if (file_exists(public_path($post->thumbnail)))
-                                <img class="card-img-top h-100" src="{{ asset($post->thumbnail) }}"
+                                <img class="card-img-top card-img-bottom h-100" src="{{ asset($post->thumbnail) }}"
                                     alt="{{ $post->title }}">
                             @else
-                                <img class="card-img-top h-100" src="{{ asset('vendor/my-blog/img/no_img.png') }}"
-                                    alt="{{ $post->title }}">
+                                <img class="card-img-top card-img-bottom h-100"
+                                    src="{{ asset('vendor/my-blog/img/no_img.png') }}" alt="{{ $post->title }}">
                             @endif
                         </div>
                         <div class="col-md-7">

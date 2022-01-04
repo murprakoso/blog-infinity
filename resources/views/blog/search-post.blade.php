@@ -15,27 +15,34 @@
         <div class="col">
             <!-- Post list:start -->
             @forelse ($posts as $post)
-                <div class="card mb-4">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <!-- thumbnail:start -->
-                                @if (file_exists(public_path($post->thumbnail)))
-                                    <img class="card-img-top" src="{{ asset($post->thumbnail) }}"
-                                        alt="{{ $post->title }}">
-                                @else
-                                    <img class="img-fluid rounded" src="http://placehold.it/750x300"
-                                        alt="{{ $post->title }}">
-                                @endif
-                                <!-- thumbnail:end -->
-                            </div>
-                            <div class="col-lg-6">
-                                <h2 class="card-title">{{ $post->title }}</h2>
-                                <p class="card-text">{{ $post->description }}</p>
-                                <a href="{{ route('blog.posts.detail', ['slug' => $post->slug]) }}"
-                                    class="btn btn-primary">
-                                    {{ trans('blog.button.read_more.value') }}
-                                </a>
+                <div class="card shadow-sm mb-3">
+                    <div class="row no-gutters">
+                        <div class="col-md-5">
+                            @if (file_exists(public_path($post->thumbnail)))
+                                <img class="card-img-top card-img-bottom h-100" src="{{ asset($post->thumbnail) }}"
+                                    alt="{{ $post->title }}">
+                            @else
+                                <img class="card-img-top card-img-bottom h-100"
+                                    src="{{ asset('vendor/my-blog/img/no_img.png') }}" alt="{{ $post->title }}">
+                            @endif
+                        </div>
+                        <div class="col-md-7">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="{{ route('blog.posts.detail', ['slug' => $post->slug]) }}"
+                                        class="text-gray-900">
+                                        {{ $post->title }}
+                                    </a>
+                                </h5>
+                                <p class="card-text text-gray-900">{{ $post->description }}</p>
+                                <p class="card-text text-gray-700">
+                                    <small class="mr-1">
+                                        <i class="fas fa-user"></i> {{ $post->user->name }}
+                                    </small>
+                                    <small>
+                                        <i class="fas fa-clock"></i> {{ Helper::date_since($post->created_at) }}
+                                    </small>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -52,7 +59,7 @@
 
     <!-- pagination:start -->
     @if ($posts->hasPages())
-        <div class="row">
+        <div class="row mb-5">
             <div class="col">
                 {{ $posts->links('vendor.pagination.bootstrap-4') }}
             </div>

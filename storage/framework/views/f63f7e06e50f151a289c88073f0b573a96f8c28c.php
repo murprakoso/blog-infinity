@@ -19,7 +19,7 @@
         <div class="col-lg-8">
             <!-- thumbnail:start -->
             <?php if(file_exists(public_path($post->thumbnail))): ?>
-                <img class="card-img-top" src="<?php echo e(asset($post->thumbnail)); ?>" alt="<?php echo e($post->title); ?>">
+                <img class="card-img-top card-img-bottom" src="<?php echo e(asset($post->thumbnail)); ?>" alt="<?php echo e($post->title); ?>">
             <?php else: ?>
                 <img class="img-fluid rounded" src="<?php echo e(asset('vendor/my-blog/img/no_img.png')); ?>"
                     alt="<?php echo e($post->title); ?>">
@@ -53,7 +53,7 @@
                     <!-- category list:start -->
                     <?php $__currentLoopData = $post->categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <a href="<?php echo e(route('blog.posts.category', ['slug' => $category->slug])); ?>"
-                            class="badge badge-primary py-2 px-4 my-1">
+                            class="btn btn-sm btn-outline-primary">
                             <?php echo e($category->title); ?>
 
                         </a>
@@ -71,8 +71,7 @@
                 <div class="card-body">
                     <!-- tag list:start -->
                     <?php $__currentLoopData = $post->tags; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tag): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <a href="<?php echo e(route('blog.posts.tag', ['slug' => $tag->slug])); ?>"
-                            class="badge badge-info py-2 px-4 my-1">
+                        <a href="<?php echo e(route('blog.posts.tag', ['slug' => $tag->slug])); ?>" class="btn btn-sm btn-secondary">
                             #<?php echo e($tag->title); ?>
 
                         </a>
