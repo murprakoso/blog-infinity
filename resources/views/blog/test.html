@@ -1,0 +1,1643 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Codelapan">
+    <meta name="csrf-token" content="5a3ApjVZmMIUihShJzPyBNP1kwM5zrJoWKEX52R5">
+    <link href="https://codelapan.com/storage/images/general/bq1MgvT4djA6t4LB9ue7I30KJd0GH1ufg4sVArwq.png" rel="icon">
+    <link href="https://codelapan.com/storage/images/general/bq1MgvT4djA6t4LB9ue7I30KJd0GH1ufg4sVArwq.png"
+        rel="apple-touch-icon">
+    <title>Cara Kirim Email dengan Attachment di Laravel 8 | Codelapan </title>
+    <meta http-equiv="Cache-Control: max-age=31536000" content="public">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta property="fb:pages" content="103005731876171" />
+    <meta name="google-site-verification"
+        content="&lt;meta name=&quot;google-site-verification&quot; content=&quot;9p7T9OXs9zfFh3V-Rvul8M61pWNbBfRMVCzbIywsGU4&quot; /&gt;" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <style>
+        /* devanagari */
+        @font-face {
+            font-family: 'Poppins';
+            font-style: italic;
+            font-weight: 400;
+            font-display: swap;
+            src: url(https://codelapan.com/storage/fonts/5a23835bb1/spoppinsv15pxigyp8kv8jhgfvrjjlucxtaovwdshff.woff2) format('woff2');
+            unicode-range: U+0900-097F, U+1CD0-1CF6, U+1CF8-1CF9, U+200C-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FB;
+        }
+
+        /* latin-ext */
+        @font-face {
+            font-family: 'Poppins';
+            font-style: italic;
+            font-weight: 400;
+            font-display: swap;
+            src: url(https://codelapan.com/storage/fonts/5a23835bb1/spoppinsv15pxigyp8kv8jhgfvrjjlufntaovwdshff.woff2) format('woff2');
+            unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+
+        /* latin */
+        @font-face {
+            font-family: 'Poppins';
+            font-style: italic;
+            font-weight: 400;
+            font-display: swap;
+            src: url(https://codelapan.com/storage/fonts/5a23835bb1/spoppinsv15pxigyp8kv8jhgfvrjjluchtaovwdsa.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        /* devanagari */
+        @font-face {
+            font-family: 'Poppins';
+            font-style: italic;
+            font-weight: 500;
+            font-display: swap;
+            src: url(https://codelapan.com/storage/fonts/5a23835bb1/spoppinsv15pxidyp8kv8jhgfvrjjlmg1hvfteoyktmqlap.woff2) format('woff2');
+            unicode-range: U+0900-097F, U+1CD0-1CF6, U+1CF8-1CF9, U+200C-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FB;
+        }
+
+        /* latin-ext */
+        @font-face {
+            font-family: 'Poppins';
+            font-style: italic;
+            font-weight: 500;
+            font-display: swap;
+            src: url(https://codelapan.com/storage/fonts/5a23835bb1/spoppinsv15pxidyp8kv8jhgfvrjjlmg1hvgdeoyktmqlap.woff2) format('woff2');
+            unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+
+        /* latin */
+        @font-face {
+            font-family: 'Poppins';
+            font-style: italic;
+            font-weight: 500;
+            font-display: swap;
+            src: url(https://codelapan.com/storage/fonts/5a23835bb1/spoppinsv15pxidyp8kv8jhgfvrjjlmg1hvf9eoyktmqg.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        /* devanagari */
+        @font-face {
+            font-family: 'Poppins';
+            font-style: italic;
+            font-weight: 600;
+            font-display: swap;
+            src: url(https://codelapan.com/storage/fonts/5a23835bb1/spoppinsv15pxidyp8kv8jhgfvrjjlmr19vfteoyktmqlap.woff2) format('woff2');
+            unicode-range: U+0900-097F, U+1CD0-1CF6, U+1CF8-1CF9, U+200C-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FB;
+        }
+
+        /* latin-ext */
+        @font-face {
+            font-family: 'Poppins';
+            font-style: italic;
+            font-weight: 600;
+            font-display: swap;
+            src: url(https://codelapan.com/storage/fonts/5a23835bb1/spoppinsv15pxidyp8kv8jhgfvrjjlmr19vgdeoyktmqlap.woff2) format('woff2');
+            unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+
+        /* latin */
+        @font-face {
+            font-family: 'Poppins';
+            font-style: italic;
+            font-weight: 600;
+            font-display: swap;
+            src: url(https://codelapan.com/storage/fonts/5a23835bb1/spoppinsv15pxidyp8kv8jhgfvrjjlmr19vf9eoyktmqg.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        /* devanagari */
+        @font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url(https://codelapan.com/storage/fonts/5a23835bb1/spoppinsv15pxieyp8kv8jhgfvrjjbecnfhgpezsq.woff2) format('woff2');
+            unicode-range: U+0900-097F, U+1CD0-1CF6, U+1CF8-1CF9, U+200C-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FB;
+        }
+
+        /* latin-ext */
+        @font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url(https://codelapan.com/storage/fonts/5a23835bb1/spoppinsv15pxieyp8kv8jhgfvrjjnecnfhgpezsq.woff2) format('woff2');
+            unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+
+        /* latin */
+        @font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url(https://codelapan.com/storage/fonts/5a23835bb1/spoppinsv15pxieyp8kv8jhgfvrjjfecnfhgpc.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        /* devanagari */
+        @font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 500;
+            font-display: swap;
+            src: url(https://codelapan.com/storage/fonts/5a23835bb1/spoppinsv15pxibyp8kv8jhgfvrlgt9z11lfd2jqel8qw.woff2) format('woff2');
+            unicode-range: U+0900-097F, U+1CD0-1CF6, U+1CF8-1CF9, U+200C-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FB;
+        }
+
+        /* latin-ext */
+        @font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 500;
+            font-display: swap;
+            src: url(https://codelapan.com/storage/fonts/5a23835bb1/spoppinsv15pxibyp8kv8jhgfvrlgt9z1jlfd2jqel8qw.woff2) format('woff2');
+            unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+
+        /* latin */
+        @font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 500;
+            font-display: swap;
+            src: url(https://codelapan.com/storage/fonts/5a23835bb1/spoppinsv15pxibyp8kv8jhgfvrlgt9z1xlfd2jqek.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        /* devanagari */
+        @font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 600;
+            font-display: swap;
+            src: url(https://codelapan.com/storage/fonts/5a23835bb1/spoppinsv15pxibyp8kv8jhgfvrlej6z11lfd2jqel8qw.woff2) format('woff2');
+            unicode-range: U+0900-097F, U+1CD0-1CF6, U+1CF8-1CF9, U+200C-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FB;
+        }
+
+        /* latin-ext */
+        @font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 600;
+            font-display: swap;
+            src: url(https://codelapan.com/storage/fonts/5a23835bb1/spoppinsv15pxibyp8kv8jhgfvrlej6z1jlfd2jqel8qw.woff2) format('woff2');
+            unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+
+        /* latin */
+        @font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 600;
+            font-display: swap;
+            src: url(https://codelapan.com/storage/fonts/5a23835bb1/spoppinsv15pxibyp8kv8jhgfvrlej6z1xlfd2jqek.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+    </style>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-209496432-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-209496432-1');
+
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6343066734412114"
+        crossorigin="anonymous"></script> ----- <script async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4496657294970189"
+        crossorigin="anonymous"></script>
+    <meta name="google-site-verification" content="9p7T9OXs9zfFh3V-Rvul8M61pWNbBfRMVCzbIywsGU4" />
+    <script>
+        ! function (f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '3065504027110695');
+        fbq('track', 'PageView');
+
+    </script> <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=3065504027110695&ev=PageView&noscript=1" /></noscript>
+    <link rel="canonical" href="https://codelapan.com/post/cara-kirim-email-dengan-attachment-di-laravel-8" />
+    <meta name="title" content="Cara Kirim Email dengan Attachment di Laravel 8">
+    <meta name="description"
+        content="Tutorial cara membuat fitur konfirmasi pembayaran manual sederhana dan mengirimkan email (gmail sender) dengan file attachment ke email admin di laravel 8">
+    <meta name="keywords" content="laravel email attachment, laravel multiple attachment, laravel gmail attachment">
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://codelapan.com/post/cara-kirim-email-dengan-attachment-di-laravel-8">
+    <meta property="og:title" content="Cara Kirim Email dengan Attachment di Laravel 8">
+    <meta property="og:description"
+        content="Tutorial cara membuat fitur konfirmasi pembayaran manual sederhana dan mengirimkan email (gmail sender) dengan file attachment ke email admin di laravel 8">
+    <meta property="og:image" content="https://codelapan.com/storage/photos/3/Cover/laravel email attachment.png">
+    <meta property="og:site_name" content="Codelapan" />
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:url" content="https://codelapan.com/post/cara-kirim-email-dengan-attachment-di-laravel-8">
+    <meta property="twitter:title" content="Cara Kirim Email dengan Attachment di Laravel 8">
+    <meta property="twitter:description"
+        content="Tutorial cara membuat fitur konfirmasi pembayaran manual sederhana dan mengirimkan email (gmail sender) dengan file attachment ke email admin di laravel 8">
+    <meta property="twitter:image" content="https://codelapan.com/storage/photos/3/Cover/laravel email attachment.png">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://codelapan.com/post/cara-kirim-email-dengan-attachment-di-laravel-8"
+            },
+            "headline": "Cara Kirim Email dengan Attachment di Laravel 8",
+            "description": "Tutorial cara membuat fitur konfirmasi pembayaran manual sederhana dan mengirimkan email (gmail sender) dengan file attachment ke email admin di laravel 8",
+            "image": "https://codelapan.com/storage/photos/3/Cover/laravel email attachment.png",
+            "author": {
+                "@type": "Person",
+                "name": "Admin"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "Codelapan",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://codelapan.com/storage/images/general/XpWWMsH2o1oZovKHyPME90GpyMj9pFsT2cX1VY3x.png"
+                }
+            },
+            "datePublished": "2021-10-18",
+            "dateModified": "2022-01-04"
+        }
+
+    </script>
+    <link rel="alternate" type="application/rss+xml" title="Codelapan.com &raquo; Feed"
+        href="https://codelapan.com/rss-feed/" />
+    <link rel="stylesheet" href="https://codelapan.com/bundle/app.css">
+    <style>
+        [wire\:loading],
+        [wire\:loading\.delay],
+        [wire\:loading\.inline-block],
+        [wire\:loading\.inline],
+        [wire\:loading\.block],
+        [wire\:loading\.flex],
+        [wire\:loading\.table],
+        [wire\:loading\.grid] {
+            display: none;
+        }
+
+        [wire\:offline] {
+            display: none;
+        }
+
+        [wire\:dirty]:not(textarea):not(input):not(select) {
+            display: none;
+        }
+
+        input:-webkit-autofill,
+        select:-webkit-autofill,
+        textarea:-webkit-autofill {
+            animation-duration: 50000s;
+            animation-name: livewireautofill;
+        }
+
+        @keyframes livewireautofill {
+            from {}
+        }
+
+    </style>
+</head>
+
+<body>
+    <header class="bg-body fixed-top py-2 d-none d-lg-block">
+        <div class="container-fluid">
+            <div class="justify-content-between d-flex">
+                <div class="d-flex me-auto">
+                    <div class="brand me-3"> <a href="/"
+                            class="d-flex  col-lg-4 mb-2 mb-lg-0 link-dark text-decoration-none" data-label="Site logo">
+                            <img data-src="https://codelapan.com/front/brand/logo.png" width="40px" height="40px"
+                                class="logo light rounded lazyload" alt="Codelapan: to Infinity and Beyond with Codes">
+                            <img data-src="https://codelapan.com/front/brand/logo-dark.png" width="40px" height="40px"
+                                class="logo dark rounded lazyload" alt="Codelapan: to Infinity and Beyond with Codes">
+                        </a> </div>
+                    <form action="https://codelapan.com/search" method="GET">
+                        <div class="form-group has-search"> <span class="form-control-feedback"> <svg
+                                    xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" fill="currentColor"
+                                    class="bi bi-search" viewBox="0 0 16 16">
+                                    <path
+                                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                                </svg> </span> <input type="text" name="q" class="form-control" placeholder="Pencarian">
+                        </div>
+                    </form>
+                </div>
+                <div class="dropdown"> <a href="/" class="menu  btn bg-transparent text-dark" aria-label="Home"
+                        title="Home"> Home </a> <button class="menu  btn bg-transparent text-dark" href="#"
+                        id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Topics"
+                        title="Topics"> Topics </button>
+                    <div class="dropdown-menu dropdown-menu-end multi-column columns-3 border-0 shadow-lg"
+                        aria-labelledby="dropdown01" style="min-width: 350px;">
+                        <div class="container-fluid px-3">
+                            <div class="row">
+                                <div
+                                    class="card-header text-center bg-primary bg-gradient rounded text-white fw-bold fs-5 mb-3">
+                                    Topics </div>
+                                <div class="col-lg-4 col-md-12 col-sm-12 px-0">
+                                    <div class="card card-category border-0 py-2"> <a
+                                            href="https://codelapan.com/tag/laravel" class="text-center text-dark"> <img
+                                                data-src="https://codelapan.com/laravel.png"
+                                                class="rounded-circle shadow-sm me-2 mb-2 lazyload" width="43px"
+                                                height="43px" alt="Laravel">
+                                            <p>Laravel</p>
+                                        </a> </div>
+                                </div>
+                                <div class="col-lg-4 col-md-12 col-sm-12 px-0">
+                                    <div class="card card-category border-0 py-2"> <a
+                                            href="https://codelapan.com/tag/livewire" class="text-center text-dark">
+                                            <img data-src="https://codelapan.com/livewire.png"
+                                                class="rounded-circle shadow-sm me-2 mb-2 lazyload" width="43px"
+                                                height="43px" alt="Livewire">
+                                            <p>Livewire</p>
+                                        </a> </div>
+                                </div>
+                                <div class="col-lg-4 col-md-12 col-sm-12 px-0">
+                                    <div class="card card-category border-0 py-2"> <a
+                                            href="https://codelapan.com/category/software-testing"
+                                            class="text-center text-dark"> <img
+                                                data-src="https://codelapan.com/testing.png"
+                                                class="rounded-circle shadow-sm me-2 mb-2 lazyload" width="43px"
+                                                height="43px" alt="Software Testing">
+                                            <p>Testing</p>
+                                        </a> </div>
+                                </div>
+                                <div class="col-lg-4 col-md-12 col-sm-12 px-0">
+                                    <div class="card card-category border-0 py-2"> <a
+                                            href="https://codelapan.com/tag/bootstrap" class="text-center text-dark">
+                                            <img data-src="https://codelapan.com/bootstrap.png"
+                                                class="rounded-circle shadow-sm me-2 mb-2 lazyload" width="43px"
+                                                height="43px" alt="bootstrap">
+                                            <p>Bootstrap</p>
+                                        </a> </div>
+                                </div>
+                                <div class="col-lg-4 col-md-12 col-sm-12 px-0">
+                                    <div class="card card-category border-0 py-2"> <a
+                                            href="https://codelapan.com/category/source-code"
+                                            class="text-center text-dark"> <img
+                                                data-src="https://codelapan.com/code.png"
+                                                class="rounded-circle shadow-sm me-2 mb-2 lazyload" width="43px"
+                                                height="43px" alt="source code">
+                                            <p>Code</p>
+                                        </a> </div>
+                                </div>
+                                <div class="col-lg-4 col-md-12 col-sm-12 px-0">
+                                    <div class="card card-category border-0 py-2"> <a
+                                            href="https://codelapan.com/tag/html" class="text-center text-dark"> <img
+                                                data-src="https://codelapan.com/html.png"
+                                                class="rounded-circle shadow-sm me-2 mb-2 lazyload" width="43px"
+                                                height="43px" alt="HTML">
+                                            <p>HTML</p>
+                                        </a> </div>
+                                </div>
+                                <div class="col-lg-4 col-md-12 col-sm-12 px-0">
+                                    <div class="card card-category border-0 py-2"> <a
+                                            href="https://codelapan.com/tag/css" class="text-center text-dark"> <img
+                                                data-src="https://codelapan.com/css.png"
+                                                class="rounded-circle shadow-sm me-2 mb-2 lazyload" width="43px"
+                                                height="43px" alt="CSS">
+                                            <p>CSS</p>
+                                        </a> </div>
+                                </div>
+                                <div class="col-lg-4 col-md-12 col-sm-12 px-0">
+                                    <div class="card card-category border-0 py-2"> <a
+                                            href="https://codelapan.com/tag/javascript" class="text-center text-dark">
+                                            <img data-src="https://codelapan.com/js.png"
+                                                class="rounded-circle shadow-sm me-2 mb-2 lazyload" width="43px"
+                                                height="43px" alt="Javascript">
+                                            <p>Javascript</p>
+                                        </a> </div>
+                                </div>
+                                <div class="col-lg-4 col-md-12 col-sm-12 px-0">
+                                    <div class="card card-category border-0 py-2"> <a
+                                            href="https://codelapan.com/tag/jquery" class="text-center text-dark"> <img
+                                                data-src="https://codelapan.com/jquery.png"
+                                                class="rounded-circle shadow-sm me-2 mb-2 lazyload" width="43px"
+                                                height="43px" alt="jQuery">
+                                            <p>jQuery</p>
+                                        </a> </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <button class="btn bg-transparent pe-0" href="#" id="dropdown03" data-bs-toggle="dropdown"
+                        aria-expanded="false" aria-label="Language" title="Language"> <img
+                            data-src="https://codelapan.com/indonesia.png" class="lazyload" alt="indonesia" width="30px"
+                            height="30px"> </button>
+                    <ul class="dropdown-menu dropdown-menu-end border-0 shadow-lg" aria-labelledby="dropdown03"
+                        style="min-width: 0;">
+                        <li><a class="dropdown-item" href="lang/id">Indonesia</a></li>
+                        <li><a class="dropdown-item" href="lang/en">English</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <header class="bg-body mobile-header py-2 fixed-top d-lg-none d-xl-none">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="d-flex justify-content-between">
+                    <div class="brand"> <a href="/" class="d-flex col-lg-4 link-dark text-decoration-none"
+                            data-label="Site logo"> <img data-src="https://codelapan.com/front/brand/logo.png"
+                                width="40px" height="40px" class="logo light rounded-circle lazyload"
+                                alt="Codelapan: to Infinity and Beyond with Codes"> <img
+                                data-src="https://codelapan.com/front/brand/logo-dark.png" width="40px" height="40px"
+                                class="logo dark rounded-circle lazyload"
+                                alt="Codelapan: to Infinity and Beyond with Codes"> </a> </div>
+                    <div class="btn-group"> <button type="button" class="btn bg-transparent" data-bs-toggle="dropdown"
+                            aria-expanded="false" aria-label="language"> <img
+                                data-src="https://codelapan.com/indonesia.png" class="lazyload" alt="indonesia"
+                                width="30px" height="30px"> </button>
+                        <ul class="dropdown-menu border-0 shadow-lg dropdown-menu-end" style="min-width: 0 !important">
+                            <li><a class="dropdown-item" href="lang/id">Indonesia</a></li>
+                            <li><a class="dropdown-item" href="lang/en">English</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <nav class="navbar navbar-light navbar-mobile navbar-expand d-lg-none d-xl-none fixed-bottom">
+        <ul class="navbar-nav nav-justified w-100">
+            <li class="nav-item"> <a href="https://codelapan.com" class="nav-link" aria-label="nav-link"> <svg
+                        xmlns="http://www.w3.org/2000/svg" width="1.6em" height="1.6em" class="icon bi bi-house"
+                        viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
+                        <path fill-rule="evenodd"
+                            d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
+                    </svg> </a> </li>
+            <li class="nav-item"> <button class="nav-link btn bg-transparent" data-bs-toggle="modal"
+                    data-bs-target="#search" aria-label="nav-link"> <svg xmlns="http://www.w3.org/2000/svg"
+                        width="1.6em" height="1.6em" class="icon bi bi-search" viewBox="0 0 16 16">
+                        <path
+                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                    </svg> </button> </li>
+            <li class="nav-item"> <button class="nav-link btn bg-transparent" data-bs-toggle="modal"
+                    data-bs-target="#topics" aria-label="nav-link"> <svg xmlns="http://www.w3.org/2000/svg"
+                        width="1.6em" height="1.6em" class="icon bi bi-ui-radios-grid" viewBox="0 0 16 16">
+                        <path
+                            d="M3.5 15a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zm9-9a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zm0 9a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zM16 3.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0zm-9 9a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0zm5.5 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zm-9-11a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 2a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+                    </svg> </button> </li>
+            <li class="nav-item"> <button id="themeBtn" class="btn bg-transparent" aria-label="nav-link"> <span
+                        class="icon" onclick="setDark()" id="darkButton"> <svg xmlns="http://www.w3.org/2000/svg"
+                            width="1.6em" height="1.6em" class="icon bi bi-moon" viewBox="0 0 16 16">
+                            <path
+                                d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278zM4.858 1.311A7.269 7.269 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.316 7.316 0 0 0 5.205-2.162c-.337.042-.68.063-1.029.063-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286z" />
+                        </svg> </span> </button> </li>
+            <li class="nav-item"> <a href="#" class="nav-link" aria-label="nav-link"> <svg
+                        xmlns="http://www.w3.org/2000/svg" width="1.6em" height="1.6em"
+                        class="icon bi bi-arrow-up-circle" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z" />
+                    </svg> </a> </li>
+        </ul>
+    </nav>
+    <div class="modal fade" id="search" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Search</h5> <button type="button" class="btn-close"
+                        data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="https://codelapan.com/search" method="GET">
+                        <div class="input-group mb-3"> <input type="text" name="q" class="form-control"
+                                placeholder="Pencarian" aria-describedby="button-addon2"> <button
+                                class="btn btn-outline-secondary" type="submit" id="button-addon2"> <svg
+                                    xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em"
+                                    class="icon bi bi-search" viewBox="0 0 16 16">
+                                    <path
+                                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                                </svg> </button> </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="notifModal" tabindex="-1" aria-labelledby="notifModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" style="width: 600px">
+                <div class="modal-header">
+                    <div class="modal-title" id="notifModalLabel">Notification</div> <button type="button"
+                        class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-1 ps-0"> <svg width="2em" height="2em"
+                                        class="rounded-circle p-1 bg-light me-1" viewBox="0 0 180 180" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <ellipse cx="92" cy="94" rx="17" ry="18" fill="#E24D4D" />
+                                        <ellipse cx="91" cy="94.5" rx="15" ry="14.5" fill="#FF5858" />
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M70.2941 36.3209C64.0872 51.0027 60.2106 71.3943 60.2106 94C60.2106 116.606 64.0872 136.997 70.2941 151.679C73.3988 159.023 77.0557 164.865 81.0369 168.848C85.0118 172.825 89.2219 174.87 93.5 174.87C94.3619 174.87 95.0605 175.57 95.0605 176.435C95.0605 177.299 94.3619 178 93.5 178C88.1547 178 83.1968 175.431 78.8329 171.065C74.4753 166.705 70.6227 160.475 67.4208 152.901C61.0145 137.748 57.0897 116.922 57.0897 94C57.0897 71.0782 61.0145 50.2524 67.4208 35.0987C70.6227 27.5249 74.4753 21.2949 78.8329 16.9352C83.1968 12.5692 88.1547 10 93.5 10C98.8454 10 103.803 12.5692 108.167 16.9352C112.525 21.2949 116.377 27.5249 119.579 35.0987C125.986 50.2524 129.91 71.0782 129.91 94C129.91 110.246 126.888 126.982 122.025 141.313C117.176 155.602 110.434 167.69 102.862 174.472C102.219 175.048 101.232 174.992 100.658 174.347C100.084 173.702 100.14 172.713 100.783 172.137C107.775 165.875 114.296 154.375 119.07 140.305C123.83 126.277 126.789 109.882 126.789 94C126.789 71.3943 122.913 51.0027 116.706 36.3209C113.601 28.9769 109.944 23.1347 105.963 19.1515C101.988 15.1747 97.7782 13.1304 93.5 13.1304C89.2219 13.1304 85.0118 15.1747 81.0369 19.1515C77.0557 23.1347 73.3988 28.9769 70.2941 36.3209Z"
+                                            fill="black" />
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M61.7834 147.63C78.0058 141.105 97.3125 129.137 115.739 113.216C134.166 97.294 148.017 80.6123 155.569 66.5954C159.351 59.5757 161.473 53.3712 161.903 48.3523C162.333 43.3218 161.049 39.8711 158.598 37.7529C156.146 35.6347 152.152 34.5251 146.331 34.8971C140.522 35.2684 133.341 37.102 125.217 40.3698C108.994 46.8949 89.6877 58.8626 71.2608 74.7843C52.8338 90.706 38.983 107.388 31.4311 121.405C27.6491 128.424 25.527 134.629 25.0973 139.648C24.6667 144.678 25.951 148.129 28.4024 150.247C30.8539 152.365 34.8477 153.475 40.6697 153.103C46.4783 152.732 53.659 150.898 61.7834 147.63ZM26.0379 152.29C39.6262 164.031 80.8456 147.452 118.104 115.259C155.362 83.066 174.551 47.4507 160.962 35.7098C147.374 23.9689 106.155 40.5484 68.8962 72.7412C31.6379 104.934 12.4495 140.549 26.0379 152.29Z"
+                                            fill="black" />
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M29.9153 67.2051C37.5691 81.4113 51.5504 98.2282 70.0784 114.237C88.6065 130.246 108.07 142.327 124.511 148.94C132.738 152.249 140.124 154.155 146.207 154.544C152.297 154.933 156.856 153.795 159.78 151.269C162.704 148.742 164.021 144.803 163.57 139.541C163.12 134.285 160.915 127.904 157.085 120.795C149.431 106.589 135.45 89.7718 116.922 73.7627C97.5633 57.0363 65.6748 41.2165 48.6202 34.8029C47.7735 34.4845 47.3859 33.6333 47.7544 32.9017C48.1229 32.1701 49.108 31.8352 49.9547 32.1536C67.2406 38.6542 99.5328 54.6519 119.286 71.7197C138.016 87.9034 152.259 104.991 160.116 119.575C164.042 126.862 166.415 133.598 166.905 139.328C167.395 145.052 166.014 149.968 162.145 153.312C158.275 156.655 152.585 157.848 145.96 157.425C139.329 157.001 131.533 154.951 123.1 151.559C106.22 144.77 86.4441 132.464 67.7139 116.28C48.9836 100.097 34.7415 83.0094 26.8836 68.4245C22.9578 61.1377 20.5854 54.402 20.0949 48.672C19.6049 42.9477 20.9856 38.032 24.8555 34.6882C28.629 31.4278 34.1341 30.2121 40.5457 30.5462C41.4674 30.5943 42.1695 31.2788 42.114 32.0753C42.0584 32.8717 41.2661 33.4784 40.3443 33.4303C34.4769 33.1245 30.072 34.2671 27.2201 36.7313C24.2958 39.258 22.9794 43.1971 23.4298 48.4588C23.8797 53.7148 26.0853 60.0963 29.9153 67.2051Z"
+                                            fill="black" />
+                                        <circle cx="93.6636" cy="11.8806" r="8.8806" fill="#77D5EA" />
+                                        <circle cx="93" cy="13" r="5" fill="#9AEDFF" />
+                                        <circle cx="32.0217" cy="117.403" r="8.8806" fill="#67C493" />
+                                        <circle cx="155.305" cy="155.015" r="8.8806" fill="#E7DA6E" />
+                                        <circle cx="31" cy="118" r="5" fill="#91DEB6" />
+                                        <circle cx="157" cy="155" r="5" fill="#FFF38B" />
+                                        <circle cx="93.6636" cy="11.8806" r="7.3806" stroke="black" stroke-width="3" />
+                                        <circle cx="32.0217" cy="117.403" r="7.3806" stroke="black" stroke-width="3" />
+                                        <circle cx="155.305" cy="155.015" r="7.3806" stroke="black" stroke-width="3" />
+                                        <circle cx="92.5" cy="93.5" r="17" stroke="black" stroke-width="3" /> </svg>
+                                </div>
+                                <div class="col-11 ps-0"> <a href="https://codelapan.com/cloud-hosting" target="_blank"
+                                        rel="noreferrer" class="text-dark">Cloud Hosting up to 75% Gratis Domain +
+                                        SSL</a> </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-1 ps-0"> <svg width="2em" height="2em"
+                                        class="rounded-circle p-1 bg-light me-1" viewBox="0 0 180 180" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <ellipse cx="92" cy="94" rx="17" ry="18" fill="#E24D4D" />
+                                        <ellipse cx="91" cy="94.5" rx="15" ry="14.5" fill="#FF5858" />
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M70.2941 36.3209C64.0872 51.0027 60.2106 71.3943 60.2106 94C60.2106 116.606 64.0872 136.997 70.2941 151.679C73.3988 159.023 77.0557 164.865 81.0369 168.848C85.0118 172.825 89.2219 174.87 93.5 174.87C94.3619 174.87 95.0605 175.57 95.0605 176.435C95.0605 177.299 94.3619 178 93.5 178C88.1547 178 83.1968 175.431 78.8329 171.065C74.4753 166.705 70.6227 160.475 67.4208 152.901C61.0145 137.748 57.0897 116.922 57.0897 94C57.0897 71.0782 61.0145 50.2524 67.4208 35.0987C70.6227 27.5249 74.4753 21.2949 78.8329 16.9352C83.1968 12.5692 88.1547 10 93.5 10C98.8454 10 103.803 12.5692 108.167 16.9352C112.525 21.2949 116.377 27.5249 119.579 35.0987C125.986 50.2524 129.91 71.0782 129.91 94C129.91 110.246 126.888 126.982 122.025 141.313C117.176 155.602 110.434 167.69 102.862 174.472C102.219 175.048 101.232 174.992 100.658 174.347C100.084 173.702 100.14 172.713 100.783 172.137C107.775 165.875 114.296 154.375 119.07 140.305C123.83 126.277 126.789 109.882 126.789 94C126.789 71.3943 122.913 51.0027 116.706 36.3209C113.601 28.9769 109.944 23.1347 105.963 19.1515C101.988 15.1747 97.7782 13.1304 93.5 13.1304C89.2219 13.1304 85.0118 15.1747 81.0369 19.1515C77.0557 23.1347 73.3988 28.9769 70.2941 36.3209Z"
+                                            fill="black" />
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M61.7834 147.63C78.0058 141.105 97.3125 129.137 115.739 113.216C134.166 97.294 148.017 80.6123 155.569 66.5954C159.351 59.5757 161.473 53.3712 161.903 48.3523C162.333 43.3218 161.049 39.8711 158.598 37.7529C156.146 35.6347 152.152 34.5251 146.331 34.8971C140.522 35.2684 133.341 37.102 125.217 40.3698C108.994 46.8949 89.6877 58.8626 71.2608 74.7843C52.8338 90.706 38.983 107.388 31.4311 121.405C27.6491 128.424 25.527 134.629 25.0973 139.648C24.6667 144.678 25.951 148.129 28.4024 150.247C30.8539 152.365 34.8477 153.475 40.6697 153.103C46.4783 152.732 53.659 150.898 61.7834 147.63ZM26.0379 152.29C39.6262 164.031 80.8456 147.452 118.104 115.259C155.362 83.066 174.551 47.4507 160.962 35.7098C147.374 23.9689 106.155 40.5484 68.8962 72.7412C31.6379 104.934 12.4495 140.549 26.0379 152.29Z"
+                                            fill="black" />
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M29.9153 67.2051C37.5691 81.4113 51.5504 98.2282 70.0784 114.237C88.6065 130.246 108.07 142.327 124.511 148.94C132.738 152.249 140.124 154.155 146.207 154.544C152.297 154.933 156.856 153.795 159.78 151.269C162.704 148.742 164.021 144.803 163.57 139.541C163.12 134.285 160.915 127.904 157.085 120.795C149.431 106.589 135.45 89.7718 116.922 73.7627C97.5633 57.0363 65.6748 41.2165 48.6202 34.8029C47.7735 34.4845 47.3859 33.6333 47.7544 32.9017C48.1229 32.1701 49.108 31.8352 49.9547 32.1536C67.2406 38.6542 99.5328 54.6519 119.286 71.7197C138.016 87.9034 152.259 104.991 160.116 119.575C164.042 126.862 166.415 133.598 166.905 139.328C167.395 145.052 166.014 149.968 162.145 153.312C158.275 156.655 152.585 157.848 145.96 157.425C139.329 157.001 131.533 154.951 123.1 151.559C106.22 144.77 86.4441 132.464 67.7139 116.28C48.9836 100.097 34.7415 83.0094 26.8836 68.4245C22.9578 61.1377 20.5854 54.402 20.0949 48.672C19.6049 42.9477 20.9856 38.032 24.8555 34.6882C28.629 31.4278 34.1341 30.2121 40.5457 30.5462C41.4674 30.5943 42.1695 31.2788 42.114 32.0753C42.0584 32.8717 41.2661 33.4784 40.3443 33.4303C34.4769 33.1245 30.072 34.2671 27.2201 36.7313C24.2958 39.258 22.9794 43.1971 23.4298 48.4588C23.8797 53.7148 26.0853 60.0963 29.9153 67.2051Z"
+                                            fill="black" />
+                                        <circle cx="93.6636" cy="11.8806" r="8.8806" fill="#77D5EA" />
+                                        <circle cx="93" cy="13" r="5" fill="#9AEDFF" />
+                                        <circle cx="32.0217" cy="117.403" r="8.8806" fill="#67C493" />
+                                        <circle cx="155.305" cy="155.015" r="8.8806" fill="#E7DA6E" />
+                                        <circle cx="31" cy="118" r="5" fill="#91DEB6" />
+                                        <circle cx="157" cy="155" r="5" fill="#FFF38B" />
+                                        <circle cx="93.6636" cy="11.8806" r="7.3806" stroke="black" stroke-width="3" />
+                                        <circle cx="32.0217" cy="117.403" r="7.3806" stroke="black" stroke-width="3" />
+                                        <circle cx="155.305" cy="155.015" r="7.3806" stroke="black" stroke-width="3" />
+                                        <circle cx="92.5" cy="93.5" r="17" stroke="black" stroke-width="3" /> </svg>
+                                </div>
+                                <div class="col-11 ps-0"> <a href="https://codelapan.com/unlimited-hosting"
+                                        target="_blank" rel="noreferrer" class="text-dark">Unlimited Hosting Diskon up
+                                        to 75% Gratis Domain + SSL</a> </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-1 ps-0"> <svg width="2em" height="2em"
+                                        class="rounded-circle p-1 bg-light me-1" viewBox="0 0 180 180" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <ellipse cx="92" cy="94" rx="17" ry="18" fill="#E24D4D" />
+                                        <ellipse cx="91" cy="94.5" rx="15" ry="14.5" fill="#FF5858" />
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M70.2941 36.3209C64.0872 51.0027 60.2106 71.3943 60.2106 94C60.2106 116.606 64.0872 136.997 70.2941 151.679C73.3988 159.023 77.0557 164.865 81.0369 168.848C85.0118 172.825 89.2219 174.87 93.5 174.87C94.3619 174.87 95.0605 175.57 95.0605 176.435C95.0605 177.299 94.3619 178 93.5 178C88.1547 178 83.1968 175.431 78.8329 171.065C74.4753 166.705 70.6227 160.475 67.4208 152.901C61.0145 137.748 57.0897 116.922 57.0897 94C57.0897 71.0782 61.0145 50.2524 67.4208 35.0987C70.6227 27.5249 74.4753 21.2949 78.8329 16.9352C83.1968 12.5692 88.1547 10 93.5 10C98.8454 10 103.803 12.5692 108.167 16.9352C112.525 21.2949 116.377 27.5249 119.579 35.0987C125.986 50.2524 129.91 71.0782 129.91 94C129.91 110.246 126.888 126.982 122.025 141.313C117.176 155.602 110.434 167.69 102.862 174.472C102.219 175.048 101.232 174.992 100.658 174.347C100.084 173.702 100.14 172.713 100.783 172.137C107.775 165.875 114.296 154.375 119.07 140.305C123.83 126.277 126.789 109.882 126.789 94C126.789 71.3943 122.913 51.0027 116.706 36.3209C113.601 28.9769 109.944 23.1347 105.963 19.1515C101.988 15.1747 97.7782 13.1304 93.5 13.1304C89.2219 13.1304 85.0118 15.1747 81.0369 19.1515C77.0557 23.1347 73.3988 28.9769 70.2941 36.3209Z"
+                                            fill="black" />
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M61.7834 147.63C78.0058 141.105 97.3125 129.137 115.739 113.216C134.166 97.294 148.017 80.6123 155.569 66.5954C159.351 59.5757 161.473 53.3712 161.903 48.3523C162.333 43.3218 161.049 39.8711 158.598 37.7529C156.146 35.6347 152.152 34.5251 146.331 34.8971C140.522 35.2684 133.341 37.102 125.217 40.3698C108.994 46.8949 89.6877 58.8626 71.2608 74.7843C52.8338 90.706 38.983 107.388 31.4311 121.405C27.6491 128.424 25.527 134.629 25.0973 139.648C24.6667 144.678 25.951 148.129 28.4024 150.247C30.8539 152.365 34.8477 153.475 40.6697 153.103C46.4783 152.732 53.659 150.898 61.7834 147.63ZM26.0379 152.29C39.6262 164.031 80.8456 147.452 118.104 115.259C155.362 83.066 174.551 47.4507 160.962 35.7098C147.374 23.9689 106.155 40.5484 68.8962 72.7412C31.6379 104.934 12.4495 140.549 26.0379 152.29Z"
+                                            fill="black" />
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M29.9153 67.2051C37.5691 81.4113 51.5504 98.2282 70.0784 114.237C88.6065 130.246 108.07 142.327 124.511 148.94C132.738 152.249 140.124 154.155 146.207 154.544C152.297 154.933 156.856 153.795 159.78 151.269C162.704 148.742 164.021 144.803 163.57 139.541C163.12 134.285 160.915 127.904 157.085 120.795C149.431 106.589 135.45 89.7718 116.922 73.7627C97.5633 57.0363 65.6748 41.2165 48.6202 34.8029C47.7735 34.4845 47.3859 33.6333 47.7544 32.9017C48.1229 32.1701 49.108 31.8352 49.9547 32.1536C67.2406 38.6542 99.5328 54.6519 119.286 71.7197C138.016 87.9034 152.259 104.991 160.116 119.575C164.042 126.862 166.415 133.598 166.905 139.328C167.395 145.052 166.014 149.968 162.145 153.312C158.275 156.655 152.585 157.848 145.96 157.425C139.329 157.001 131.533 154.951 123.1 151.559C106.22 144.77 86.4441 132.464 67.7139 116.28C48.9836 100.097 34.7415 83.0094 26.8836 68.4245C22.9578 61.1377 20.5854 54.402 20.0949 48.672C19.6049 42.9477 20.9856 38.032 24.8555 34.6882C28.629 31.4278 34.1341 30.2121 40.5457 30.5462C41.4674 30.5943 42.1695 31.2788 42.114 32.0753C42.0584 32.8717 41.2661 33.4784 40.3443 33.4303C34.4769 33.1245 30.072 34.2671 27.2201 36.7313C24.2958 39.258 22.9794 43.1971 23.4298 48.4588C23.8797 53.7148 26.0853 60.0963 29.9153 67.2051Z"
+                                            fill="black" />
+                                        <circle cx="93.6636" cy="11.8806" r="8.8806" fill="#77D5EA" />
+                                        <circle cx="93" cy="13" r="5" fill="#9AEDFF" />
+                                        <circle cx="32.0217" cy="117.403" r="8.8806" fill="#67C493" />
+                                        <circle cx="155.305" cy="155.015" r="8.8806" fill="#E7DA6E" />
+                                        <circle cx="31" cy="118" r="5" fill="#91DEB6" />
+                                        <circle cx="157" cy="155" r="5" fill="#FFF38B" />
+                                        <circle cx="93.6636" cy="11.8806" r="7.3806" stroke="black" stroke-width="3" />
+                                        <circle cx="32.0217" cy="117.403" r="7.3806" stroke="black" stroke-width="3" />
+                                        <circle cx="155.305" cy="155.015" r="7.3806" stroke="black" stroke-width="3" />
+                                        <circle cx="92.5" cy="93.5" r="17" stroke="black" stroke-width="3" /> </svg>
+                                </div>
+                                <div class="col-11 ps-0"> <a href="https://codelapan.com/promo-domain-com"
+                                        target="_blank" rel="noreferrer" class="text-dark">Promo Domain .com hanya IDR.
+                                        125.000</a> </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="feedbackModal" tabindex="-1" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="feedbackModalLabel">Berikan tanggapan Anda</h5> <button type="button"
+                        class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form wire:id="aYSScL2TGTRZ37pHKgKv"
+                        wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;aYSScL2TGTRZ37pHKgKv&quot;,&quot;name&quot;:&quot;feedback-form&quot;,&quot;locale&quot;:&quot;id&quot;,&quot;path&quot;:&quot;post\/cara-kirim-email-dengan-attachment-di-laravel-8&quot;,&quot;method&quot;:&quot;GET&quot;},&quot;effects&quot;:{&quot;listeners&quot;:[]},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;f158d1ea&quot;,&quot;data&quot;:{&quot;desc&quot;:null,&quot;star&quot;:null},&quot;dataMeta&quot;:[],&quot;checksum&quot;:&quot;879d9b71bfe6a1c497fc14f65faf683805e40ee6243ec018a9459d1a9c8fc0b8&quot;}}"
+                        wire:submit.prevent="submit">
+                        <div class="card border-0 mx-auto mb-3">
+                            <div class="rate mx-auto"> <input type="radio" wire:model="star" id="star5" name="star"
+                                    value="5" /> <label for="star5" title="text">5 stars</label> <input type="radio"
+                                    wire:model="star" id="star4" name="star" value="4" /> <label for="star4"
+                                    title="text">4 stars</label> <input type="radio" wire:model="star" id="star3"
+                                    name="star" value="3" /> <label for="star3" title="text">3 stars</label> <input
+                                    type="radio" wire:model="star" id="star2" name="star" value="2" /> <label
+                                    for="star2" title="text">2 stars</label> <input type="radio" wire:model="star"
+                                    id="star1" name="star" value="1" /> <label for="star1" title="text">1 star</label>
+                            </div>
+                        </div>
+                        <div class="mb-3"> <textarea class="form-control" wire:model="desc" placeholder="Tanggapan anda"
+                                rows="3"></textarea> </div>
+                        <div class="d-flex justify-content-end"> <button type="button" class="btn btn-secondary"
+                                data-bs-dismiss="modal">Close</button> <button type="submit"
+                                class="btn btn-primary ms-2">Submit</button> </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="topics" tabindex="-1" aria-labelledby="topicsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="topicsModalLabel">Menu</h5> <button type="button" class="btn-close"
+                        data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-4 px-0">
+                                <div class="card card-category border-0 py-2"> <a
+                                        href="https://codelapan.com/tag/laravel" class="text-center text-dark"> <img
+                                            data-src="https://codelapan.com/laravel.png"
+                                            class="rounded-circle shadow-sm me-2 mb-2 lazyload" width="43px"
+                                            height="43px" alt="Laravel">
+                                        <p>Laravel</p>
+                                    </a> </div>
+                            </div>
+                            <div class="col-4 px-0">
+                                <div class="card card-category border-0 py-2"> <a
+                                        href="https://codelapan.com/tag/livewire" class="text-center text-dark"> <img
+                                            data-src="https://codelapan.com/livewire.png"
+                                            class="rounded-circle shadow-sm me-2 mb-2 lazyload" width="43px"
+                                            height="43px" alt="Livewire">
+                                        <p>Livewire</p>
+                                    </a> </div>
+                            </div>
+                            <div class="col-4 px-0">
+                                <div class="card card-category border-0 py-2"> <a
+                                        href="https://codelapan.com/category/software-testing"
+                                        class="text-center text-dark"> <img data-src="https://codelapan.com/testing.png"
+                                            class="rounded-circle shadow-sm me-2 mb-2 lazyload" width="43px"
+                                            height="43px" alt="Software Testing">
+                                        <p>Testing</p>
+                                    </a> </div>
+                            </div>
+                            <div class="col-4 px-0">
+                                <div class="card card-category border-0 py-2"> <a
+                                        href="https://codelapan.com/tag/bootstrap" class="text-center text-dark"> <img
+                                            data-src="https://codelapan.com/bootstrap.png"
+                                            class="rounded-circle shadow-sm me-2 mb-2 lazyload" width="43px"
+                                            height="43px" alt="Bootstrap">
+                                        <p>Bootstrap</p>
+                                    </a> </div>
+                            </div>
+                            <div class="col-4 px-0">
+                                <div class="card card-category border-0 py-2"> <a
+                                        href="https://codelapan.com/category/source-code" class="text-center text-dark">
+                                        <img data-src="https://codelapan.com/code.png"
+                                            class="rounded-circle shadow-sm me-2 mb-2 lazyload" width="43px"
+                                            height="43px" alt="Source Code">
+                                        <p>Code</p>
+                                    </a> </div>
+                            </div>
+                            <div class="col-4 px-0">
+                                <div class="card card-category border-0 py-2"> <a href="https://codelapan.com/tag/html"
+                                        class="text-center text-dark"> <img data-src="https://codelapan.com/html.png"
+                                            class="rounded-circle shadow-sm me-2 mb-2 lazyload" width="43px"
+                                            height="43px" alt="HTML">
+                                        <p>HTML</p>
+                                    </a> </div>
+                            </div>
+                            <div class="col-4 px-0">
+                                <div class="card card-category border-0 py-2"> <a href="https://codelapan.com/tag/css"
+                                        class="text-center text-dark"> <img data-src="https://codelapan.com/css.png"
+                                            class="rounded-circle shadow-sm me-2 mb-2 lazyload" width="43px"
+                                            height="43px" alt="CSS">
+                                        <p>CSS</p>
+                                    </a> </div>
+                            </div>
+                            <div class="col-4 px-0">
+                                <div class="card card-category border-0 py-2"> <a
+                                        href="https://codelapan.com/tag/javascript" class="text-center text-dark"> <img
+                                            data-src="https://codelapan.com/js.png"
+                                            class="rounded-circle shadow-sm me-2 mb-2 lazyload" width="43px"
+                                            height="43px" alt="Javascript">
+                                        <p>Javascript</p>
+                                    </a> </div>
+                            </div>
+                            <div class="col-4 px-0">
+                                <div class="card card-category border-0 py-2"> <a
+                                        href="https://codelapan.com/tag/jquery" class="text-center text-dark"> <img
+                                            data-src="https://codelapan.com/jquery.png"
+                                            class="rounded-circle shadow-sm me-2 mb-2 lazyload" width="43px"
+                                            height="43px" alt="jQuery">
+                                        <p>jQuery</p>
+                                    </a> </div>
+                            </div>
+                            <div class="col-4 px-0">
+                                <div class="card card-category border-0 py-2"> <a
+                                        href="https://codelapan.com/p/about-us" class="text-center text-dark"> <img
+                                            data-src="https://codelapan.com/about.png"
+                                            class="rounded-circle shadow-sm me-2 mb-2 lazyload" width="43px"
+                                            height="43px" alt="jQuery">
+                                        <p>About us</p>
+                                    </a> </div>
+                            </div>
+                            <div class="col-4 px-0">
+                                <div class="card card-category border-0 py-2"> <a href="#" type="button"
+                                        data-bs-target="#feedbackModal" data-bs-toggle="modal" data-bs-dismiss="modal"
+                                        class="text-center text-dark"> <img
+                                            data-src="https://codelapan.com/feedback.png"
+                                            class="rounded-circle shadow-sm me-2 mb-2 lazyload" width="43px"
+                                            height="43px" alt="jQuery">
+                                        <p>Feedback</p>
+                                    </a> </div>
+                            </div>
+                            <div class="col-4 px-0">
+                                <div class="card card-category border-0 py-2"> <a
+                                        href="https://codelapan.com/p/privacy-policy" class="text-center text-dark">
+                                        <img data-src="https://codelapan.com/doc.png"
+                                            class="rounded-circle shadow-sm me-2 mb-2 lazyload" width="43px"
+                                            height="43px" alt="jQuery">
+                                        <p>Privacy Policy</p>
+                                    </a> </div>
+                            </div>
+                            <div class="col-4 px-0">
+                                <div class="card card-category border-0 py-2"> <a
+                                        href="https://codelapan.com/p/disclaimer" class="text-center text-dark"> <img
+                                            data-src="https://codelapan.com/cs.png"
+                                            class="rounded-circle shadow-sm me-2 mb-2 lazyload" width="43px"
+                                            height="43px" alt="jQuery">
+                                        <p>Disclaimer</p>
+                                    </a> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <main id="main">
+        <section class="post-category pb-3">
+            <div class="container-fluid">
+                <div class="row mt-lg-3">
+                    <div class="col-lg-9 col-xl-9 col-md-12 col-sm-12 mobile-space">
+                        <div class="card rounded-3 mb-4"> <img
+                                data-src="https://codelapan.com/storage/photos/3/Cover/laravel email attachment.png"
+                                height="390" width="730" class="card-img-top rounded img-fluid lazyload" loading="lazy"
+                                alt="Cara Kirim Email dengan Attachment di Laravel 8">
+                            <div class="card-body text-dark" id="desc">
+                                <h1 class="card-title mb-2">Cara Kirim Email dengan Attachment di Laravel 8</h1>
+                                <div class="d-flex info pt-4">
+                                    <div class="flex-shrink-0"> <img
+                                            data-src="https://codelapan.com/storage/photos/3/Creator/avatar-user.png"
+                                            height="64px" width="64px" data-sizes="auto" class="rounded-circle lazyload"
+                                            alt="Admin"> </div>
+                                    <div class="d-flex flex-column">
+                                        <div class="d-flex justify-content-between ms-3"> <small
+                                                class="text-muted"><strong>Admin</strong>・ 18 Oktober 2021</small>
+                                        </div>
+                                        <div class="d-flex ms-3 mt-1"> <small class="text-muted">9 min read ・ 595
+                                                views</small> </div>
+                                    </div>
+                                </div>
+                                <script async
+                                    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6343066734412114"
+                                    crossorigin="anonymous"></script> <ins class="adsbygoogle" style="display:block"
+                                    data-ad-client="ca-pub-6343066734412114" data-ad-slot="9998787753"
+                                    data-ad-format="auto" data-full-width-responsive="true"></ins>
+                                <script>
+                                    (adsbygoogle = window.adsbygoogle || []).push({});
+
+                                </script>
+                                <p class="card-text mt-2">
+                                    <p><strong>Laravel Email Attachment</strong> - Halo gaess 👋 Di artikel ini saya
+                                        akan share cara mengirimkan email dengan attachment di laravel 8. Pada artikel
+                                        ini, saya mensimulasikannya dengan membuat suatu fitur konfirmasi pembayaran
+                                        manual sederhana. Jadi skenarionya, ketika user menginputkan data-data seperti
+                                        nama, email, jumlah transfer, bank, nama pemilik rekening, tanggal transfer dan
+                                        bukti transfer, kemudian user melakukan submit data, maka data-data tersebut
+                                        akan dimasukkan ke table payment dan akan mengirimkan email ke admin yang berisi
+                                        detail dari yang diinputkan user dan tambahan attachment berupa bukti transfer.
+                                    </p>
+                                    <div class="mce-toc">
+                                        <h2><strong>Laravel Email Attachment</strong></h2>
+                                        <ul>
+                                            <li><a href="#mcetoc_1fi9cc29tf6">Step 1: Install Laravel</a></li>
+                                            <li><a href="#mcetoc_1fi9cc29tf7">Step 2: Setup Database</a></li>
+                                            <li><a href="#mcetoc_1fi9cc29tf8">Step 3: Setup Sender</a></li>
+                                            <li><a href="#mcetoc_1fi9cc29tf9">Step 4: Membuat Model &amp; Migration</a>
+                                            </li>
+                                            <li><a href="#mcetoc_1fi9h6ch73">Step 5: Setup Route</a></li>
+                                            <li><a href="#mcetoc_1fi9cc29tfa">Step 6: Generate Mailable</a></li>
+                                            <li><a href="#mcetoc_1fi9cc29tfb">Step 7: Setup View</a></li>
+                                            <li><a href="#mcetoc_1fi9pu5e01m">Testing</a></li>
+                                        </ul>
+                                    </div>
+                                    <p>Baiklah, mari kita langsung saja ke koding untuk implementasi membuat kirim email
+                                        dengan attachment di laravel 8. 👇 🚀</p>
+                                    <h2 id="mcetoc_1fi9cc29tf6">Step 1: Install Laravel</h2>
+                                    <pre class="language-markup"><code>//via Laravel Installer
+    composer global require laravel/installer
+    laravel new laravel-email-attachment
+
+    //via Composer
+    composer create-project laravel/laravel laravel-email-attachment</code></pre>
+                                    <p>Kita akan memulainya dengan menginstall laravel terbaru. Untuk menginstall
+                                        laravel, bisa menggunakan laravel installer atau bisa menggunakan composer
+                                        seperti contoh di atas. Disini&nbsp; saya akan menginstall laravel dengan nama
+                                        project laravel-email-attachment. Kemudian, masuk ke direktori dengan perintah
+                                        <strong>cd laravel-email-attachment</strong>.</p>
+                                    <h2 id="mcetoc_1fi9cc29tf7">Step 2: Setup Database</h2>
+                                    <pre class="language-markup"><code>DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=laravel_email_attachment
+    DB_USERNAME=root
+    DB_PASSWORD=</code></pre>
+                                    <p>Langkah selanjutnya yaitu melakukan setup database. Disini sebagai contoh, saya
+                                        akan membuat database baru dan menyesuaikannya di file .env seperti contoh di
+                                        atas.</p>
+                                    <h2 id="mcetoc_1fi9cc29tf8">Step 3: Setup Sender</h2>
+                                    <pre class="language-markup"><code>MAIL_MAILER=smtp
+    MAIL_HOST=smtp.googlemail.com
+    MAIL_PORT=587
+    <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a0ede1e9ecfff5f3e5f2eee1ede59dcdc1c9cce0c7cdc1c9cc8ec3cfcd">[email&#160;protected]</a>
+    MAIL_PASSWORD=password
+    MAIL_ENCRYPTION=tls
+    <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6c212d2520332a3e2321332d28283e293f3f51010d05002c0b010d0500420f0301">[email&#160;protected]</a>
+    MAIL_FROM_NAME="Codelapan"</code></pre>
+                                    <p>Kemudian di step ketiga yaitu melakukan setup email sender. Karena pada percobaan
+                                        ini, kita akan mengirimkan email dengan gmail di laravel 8, jadi pada file .env
+                                        juga perlu disesuaikan seperti contoh di atas.</p>
+                                    <h2 id="mcetoc_1fi9cc29tf9">Step 4: Membuat Model &amp; Migration</h2>
+                                    <pre class="language-markup"><code>php artisan make:model Payment -m</code></pre>
+                                    <p>Kemudian, step keempat yaitu membuat model dan file migration. Seperti yang telah
+                                        saya bahas di awal tadi, pada artikel ini saya akan share cara kirim email
+                                        dengan attachment menggunakan sender gmail di laravel 8 dan akan disimulasikan
+                                        dengan membuat fitur konfirmasi pembayaran secara manual. Jadi, kita akan
+                                        membuat model dan file migration untuk membuat table payments dengan menjalankan
+                                        perintah seperti di atas.</p>
+                                    <pre class="language-php"><code>&lt;?php
+
+    use Illuminate\Database\Migrations\Migration;
+    use Illuminate\Database\Schema\Blueprint;
+    use Illuminate\Support\Facades\Schema;
+
+    class CreatePaymentsTable extends Migration
+    {
+        /**
+         * Run the migrations.
+         *
+         * @return void
+         */
+        public function up()
+        {
+            Schema::create('payments', function (Blueprint $table) {
+                $table-&gt;id();
+                $table-&gt;string('name');
+                $table-&gt;string('email');
+                $table-&gt;string('bank');
+                $table-&gt;string('bank_account');
+                $table-&gt;integer('amount');
+                $table-&gt;date('transfer_date');
+                $table-&gt;string('photo');
+                $table-&gt;timestamps();
+            });
+        }
+
+        /**
+         * Reverse the migrations.
+         *
+         * @return void
+         */
+        public function down()
+        {
+            Schema::dropIfExists('payments');
+        }
+    }</code></pre>
+                                    <p>Kemudian, buka file migration yang baru saja dibuat. Kemudian tambahkan
+                                        column-column yang diperlukan seperti kode di atas.</p>
+                                    <h2 id="mcetoc_1fi9h6ch73">Step 5: Setup Route</h2>
+                                    <pre class="language-php"><code>&lt;?php
+
+    use App\Mail\PaymentEmail;
+    use App\Models\Payment;
+    use Illuminate\Support\Facades\Route;
+
+    /*
+    |--------------------------------------------------------------------------
+    | Web Routes
+    |--------------------------------------------------------------------------
+    |
+    | Here is where you can register web routes for your application. These
+    | routes are loaded by the RouteServiceProvider within a group which
+    | contains the "web" middleware group. Now create something great!
+    |
+    */
+
+    Route::get('/', function () {
+        return view('welcome');
+    });
+
+    Route::post('/', function () {
+
+        $payment = new Payment();
+        $payment-&gt;name          = request()-&gt;name;
+        $payment-&gt;email         = request()-&gt;email;
+        $payment-&gt;bank          = request()-&gt;bank;
+        $payment-&gt;bank_account  = request()-&gt;bank_account;
+        $payment-&gt;amount        = request()-&gt;amount;
+        $payment-&gt;transfer_date = request()-&gt;transfer_date;
+
+        $path = request()-&gt;file('photo')-&gt;store('payments');
+        $payment-&gt;photo = $path;
+
+        $payment-&gt;save();
+
+        \Mail::to('<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3051545d595e70575d51595c1e535f5d">[email&#160;protected]</a>')-&gt;send(new PaymentEmail($payment));
+
+        return back();
+    });</code></pre>
+                                    <p>Kemudian, buka file routes/web.php dan tambahkan route post seperti kode di atas.
+                                        Disini kita menambahkan route post yang memproses data-data dari request untuk
+                                        ditambahkan ke table payments dan mengirimkan email dengan class PaymentEmail
+                                        dan berisikan detail dari yang diinputkan user ke email admin. Jadi, untuk
+                                        <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                                                data-cfemail="7110151c181f31161c10181d5f121e1c">[email&#160;protected]</a></strong>
+                                        di atas, silahkan ganti dengan email aktif kamu untuk mengetahui hasilnya nanti.
+                                    </p>
+                                    <h2 id="mcetoc_1fi9cc29tfa">Step 6: Generate Mailable</h2>
+                                    <pre
+                                        class="language-markup"><code>php artisan make:mail PaymentEmail --markdown=emails.payment</code></pre>
+                                    <p>Oke, step selanjutnya yaitu membuat mailable class. Jalankan perintah artisan
+                                        seperti di atas untuk membuat mail class dengan nama PaymentEmail dan markdown
+                                        mail yang terletak di direktori views/emails/payment.blade.php.</p>
+                                    <pre class="language-php"><code>&lt;?php
+
+    namespace App\Mail;
+
+    use Illuminate\Bus\Queueable;
+    use Illuminate\Contracts\Queue\ShouldQueue;
+    use Illuminate\Mail\Mailable;
+    use Illuminate\Queue\SerializesModels;
+    use App\Models\Payment;
+    class PaymentEmail extends Mailable
+    {
+        use Queueable, SerializesModels;
+
+        public $payment;
+        /**
+         * Create a new message instance.
+         *
+         * @return void
+         */
+        public function __construct(Payment $payment)
+        {
+            $this-&gt;payment = $payment;
+        }
+
+        /**
+         * Build the message.
+         *
+         * @return $this
+         */
+        public function build()
+        {
+            $file = \Storage::path($this-&gt;payment-&gt;photo);
+
+            return $this-&gt;from('<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5f323e36331f38323e3633713c3032">[email&#160;protected]</a>')
+                        -&gt;markdown('emails.payment')
+                        -&gt;with([
+                            'name'          =&gt; $this-&gt;payment-&gt;name,
+                            'amount'        =&gt; $this-&gt;payment-&gt;amount,
+                            'bank'          =&gt; $this-&gt;payment-&gt;bank,
+                            'transfer_date' =&gt; $this-&gt;payment-&gt;transfer_date
+                        ])
+                        -&gt;attach($file);
+        }
+    }</code></pre>
+                                    <p>Kemudian, buka file PaymentEmail.php yang terletak di direktori app/Mail dan
+                                        sesuaikan kode yang ada dengan kode seperti di atas. Ganti
+                                        <strong>mail.gmail.com</strong> dengan email yang kamu gunakan untuk mengirimkan
+                                        email. Disini kita memparsing data dari yang diinputkan user ke mail dan
+                                        menambahkan file attachment yang merupakan file bukti pembayaran yang juga
+                                        diinputkan oleh user.</p>
+                                    <pre class="language-php"><code>@component('mail::message')
+    # Dear Admin
+
+    Ada pembayaran baru dari &lt;strong&gt;{{ $name }}&lt;/strong&gt; sejumlah &lt;strong&gt;{{ "Rp " . number_format($amount,2,',','.') }}&lt;/strong&gt;, yang ditansfer pada tanggal &lt;strong&gt;{{ date('d F Y', strtotime($transfer_date)) }}&lt;/strong&gt; dari Bank &lt;strong&gt;{{ $bank }}&lt;/strong&gt;. Berikut ini bukti transfer dari &lt;strong&gt;{{ $name }}&lt;/strong&gt;, mohon diperiksa ya.
+
+    Thanks,&lt;br&gt;
+    {{ config('app.name') }}
+    @endcomponent</code></pre>
+                                    <p>Kemudian, buka file markdown mail yang juga telah kita generate sebelumnya. File
+                                        tersebut ada di direktori resources/views/emails dengan nama payment.blade.php.
+                                        Ubah kodenya menjadi seperti di atas.</p>
+                                    <h2 id="mcetoc_1fi9cc29tfb">Step 7: Setup View</h2>
+                                    <pre class="language-php"><code>&lt;!doctype html&gt;
+    &lt;html lang="en"&gt;
+        &lt;head&gt;
+            &lt;!-- Required meta tags --&gt;
+            &lt;meta charset="utf-8"&gt;
+            &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+            &lt;!-- Bootstrap CSS --&gt;
+            &lt;link href="https://cdn.jsdelivr.net/npm/<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="54363b3b20272026352414617a657a67">[email&#160;protected]</a>/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"&gt;
+            &lt;title&gt;How to Send Email with Attachment in Laravel 8&lt;/title&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+            &lt;div class="container my-5"&gt;
+                &lt;h1 class="fs-4 fw-bold mb-3 text-center"&gt;How to Send Email with Attachment in Laravel 8&lt;/h1&gt;
+                &lt;div class="row"&gt;
+                    &lt;form class="row g-3" action="/" method="POST" enctype="multipart/form-data"&gt;
+                        @csrf
+                        &lt;div class="col-md-6"&gt;
+                            &lt;label for="name" class="form-label"&gt;Name&lt;/label&gt;
+                            &lt;input type="text" name="name" class="form-control" id="name"&gt;
+                        &lt;/div&gt;
+                        &lt;div class="col-md-6"&gt;
+                            &lt;label for="email" class="form-label"&gt;Email&lt;/label&gt;
+                            &lt;input type="email" name="email" class="form-control" id="email"&gt;
+                        &lt;/div&gt;
+                        &lt;div class="col-md-6"&gt;
+                            &lt;label for="bank" class="form-label"&gt;Bank&lt;/label&gt;
+                            &lt;input type="text" name="bank" class="form-control" id="bank"&gt;
+                        &lt;/div&gt;
+                        &lt;div class="col-md-6"&gt;
+                            &lt;label for="bank_account" class="form-label"&gt;Bank Account Name&lt;/label&gt;
+                            &lt;input type="text" name="bank_account" class="form-control" id="bank_account"&gt;
+                        &lt;/div&gt;
+                        &lt;div class="col-md-6"&gt;
+                            &lt;label for="amount" class="form-label"&gt;Amount&lt;/label&gt;
+                            &lt;input type="number" name="amount" class="form-control" id="amount"&gt;
+                        &lt;/div&gt;
+                        &lt;div class="col-md-6"&gt;
+                            &lt;label for="transfer_date" class="form-label"&gt;Transfer Date&lt;/label&gt;
+                            &lt;input type="date" name="transfer_date" class="form-control" id="transfer_date"&gt;
+                        &lt;/div&gt;
+                        &lt;div class="col-md-12"&gt;
+                            &lt;label for="Photo" class="form-label"&gt;Photo&lt;/label&gt;
+                            &lt;input type="file" name="photo" class="form-control" id="Photo"&gt;
+                        &lt;/div&gt;
+                        &lt;div class="col-12"&gt;
+                            &lt;button type="submit" class="btn btn-primary"&gt;Submit&lt;/button&gt;
+                        &lt;/div&gt;
+                    &lt;/form&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;script src="https://cdn.jsdelivr.net/npm/<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a7c5c8c8d3d4d3d5c6d7e79289968994">[email&#160;protected]</a>/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"&gt;&lt;/script&gt;
+        &lt;/body&gt;
+    &lt;/html&gt;</code></pre>
+                                    <p>Terakhir, kita buat form untuk user malakukan konfirmasi pembayaran manual. Buka
+                                        file welcome.blade.php, lalu ubah kodenya menjadi seperti di atas. Disini, kita
+                                        hanya membuat form input sederhana menggunakan bootstrap 5.</p>
+                                    <h2 id="mcetoc_1fi9pu5e01m">Testing</h2>
+                                    <p><strong>Contoh email dengan attachment di laravel 8</strong></p>
+                                    <p><img src="/storage/photos/3/laravel email attachment example.png"
+                                            alt="Laravel email attachment" width="962" height="540" /></p>
+                                    <p>Baiklah, sekarang mari kita test kirim email dengan attachment di laravel 8.
+                                        Sebelumnya, silahkan jalankan laravel project dengan menjalankan perintah php
+                                        artisan serve terlebih dahulu. Kemudian buka laravel project pada browser dan
+                                        coba lakukan input data dan jangan lupa untuk upload file. Setelah klik submit,
+                                        maka akan ada email masuk ke email yang kamu inputkan dan berisikan detail dari
+                                        inputan dengan attachment file bukti pembayaran seperti gambar di atas.</p>
+                                    <p>Sekian artikel kali ini, semoga artikel ini bisa membantu dan sampai jumpa di
+                                        artikel berikutnya. 👋 👨&zwj;💻</p>
+                                    <p>&nbsp;</p>
+                                    <p>📖 <strong>Documentation: <a title="Laravel Mail Attachments"
+                                                href="https://laravel.com/docs/8.x/mail#attachments" target="_blank"
+                                                rel="noopener">Laravel Mail Attachments</a></strong></p>
+                                    <p>⭐ <strong>Credit: <a title="Work illustrations by Storyset"
+                                                href="https://storyset.com/work" target="_blank" rel="noopener">Work
+                                                illustrations by Storyset</a></strong></p>
+                                </p>
+                                <script data-cfasync="false"
+                                    src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+                                <script async
+                                    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6343066734412114"
+                                    crossorigin="anonymous"></script> <ins class="adsbygoogle" style="display:block"
+                                    data-ad-client="ca-pub-6343066734412114" data-ad-slot="9998787753"
+                                    data-ad-format="auto" data-full-width-responsive="true"></ins>
+                                <script>
+                                    (adsbygoogle = window.adsbygoogle || []).push({});
+
+                                </script>
+                                <div class="entry-footer clearfix mt-2 pb-0">
+                                    <div class="d-flex"> <a href="https://codelapan.com/tag/laravel"
+                                            class="badge bg-laravel me-1 shadow-sm text-white">Laravel</a> <a
+                                            href="https://codelapan.com/tag/laravel8"
+                                            class="badge bg-laravel me-1 shadow-sm text-white">Laravel8</a> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-3">
+                            <div class="p-2 border-2">
+                                <div class="input-group"> <input type="text" class="copyURL form-control"
+                                        value="https://codelapan.com/post/cara-kirim-email-dengan-attachment-di-laravel-8"
+                                        id="urlcopy" readonly aria-label="URL Copy"> <button
+                                        class="btn btn-primary rounded-end copyBtn" id="copyBtn"
+                                        data-clipboard-target="#urlcopy" aria-label="URL Copy" data-bs-toggle="tooltip"
+                                        data-bs-placement="top" title="Copy to clipboard"> <span aria-hidden="true">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z" />
+                                                <path
+                                                    d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z" />
+                                            </svg> </span> </button> <button type="button"
+                                        class="btn btn-primary ms-1 rounded" data-bs-toggle="modal"
+                                        data-bs-target="#shareModal" aria-label="Share"> <svg
+                                            xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-share" viewBox="0 0 16 16">
+                                            <path
+                                                d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z" />
+                                        </svg> </button> </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 mb-3">
+                                <div class="card bg-body">
+                                    <div class="card-header"> <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                            height="16" fill="currentColor" class="bi bi-arrow-bar-left"
+                                            viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd"
+                                                d="M12.5 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5zM10 8a.5.5 0 0 1-.5.5H3.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L3.707 7.5H9.5a.5.5 0 0 1 .5.5z" />
+                                        </svg> Artikel Sebelumnya </div>
+                                    <div class="card-body other-post"> <a
+                                            href="https://codelapan.com/post/login-google-jetstream-laravel-8"
+                                            class="text-dark">
+                                            <p class="card-text">Membuat Fitur Login dengan Akun Google di Jetstrea...
+                                            </p>
+                                        </a> </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 mb-3">
+                                <div class="card bg-body">
+                                    <div class="card-header text-end"> Artikel Selanjutnya <svg
+                                            xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-arrow-bar-right" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd"
+                                                d="M6 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L12.293 7.5H6.5A.5.5 0 0 0 6 8zm-2.5 7a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5z" />
+                                        </svg> </div>
+                                    <div class="card-body other-post"> <a
+                                            href="https://codelapan.com/post/welcome-email-notification-laravel-8"
+                                            class="text-dark">
+                                            <p class="card-text">Kirim Welcome Email Notification Setelah User Regi...
+                                            </p>
+                                        </a> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-3" id="comment">
+                            <div class="card-header bg-primary bg-gradient text-white fw-bold fs-5"> Tinggalkan Komentar
+                            </div>
+                            <div class="card-body">
+                                <div id="disqus_thread">
+                                    <div id="disqus_thread_loader">Loading Comments</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card bg-transparent border-0 mb-3"> </div>
+                    </div>
+                    <div class="col-lg-3 col-md-12 col-sm-12">
+                        <div class="sticky-top" style="top: 72px;">
+                            <div class="card border rounded-3 mb-3"> <button
+                                    class="btn btn-light border-0 text-dark rounded-3 fw-bold fs-5" type="button"
+                                    data-bs-toggle="offcanvas" data-bs-target="#offcanvasShortcuts"
+                                    aria-controls="offcanvasShortcuts"> Artikel Terkait <svg
+                                        xmlns="http://www.w3.org/2000/svg" width="1.6em" height="1.6em"
+                                        fill="currentColor" class="bi bi-link-45deg ms-1" viewBox="0 0 16 16">
+                                        <path
+                                            d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z" />
+                                        <path
+                                            d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z" />
+                                    </svg> </button>
+                                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasShortcuts"
+                                    aria-labelledby="offcanvasRightLabel">
+                                    <div class="offcanvas-header fw-bold fs-5"> Artikel Terkait <button type="button"
+                                            class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                                            aria-label="Close"></button> </div>
+                                    <div class="offcanvas-body">
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item"> <a
+                                                    href="https://codelapan.com/post/membuat-website-jadwal-sholat-dengan-api-fathimah-bot"
+                                                    class="text-dark">Membuat Website Jadwal Sholat Dengan API Fathimah
+                                                    Bot</a> </li>
+                                            <li class="list-group-item"> <a
+                                                    href="https://codelapan.com/post/yajra-datatables-server-side-laravel-8"
+                                                    class="text-dark">Implementasi Yajra Datatables Server Side di
+                                                    Laravel 8</a> </li>
+                                            <li class="list-group-item"> <a
+                                                    href="https://codelapan.com/post/cara-kirim-email-dengan-gmail-di-laravel"
+                                                    class="text-dark">Cara Kirim Email Dengan Gmail Di Laravel</a> </li>
+                                            <li class="list-group-item"> <a
+                                                    href="https://codelapan.com/post/laravel-livewire-upload-multiple-image"
+                                                    class="text-dark">Laravel Livewire: Membuat Fitur Upload Multiple
+                                                    Image dengan Preview</a> </li>
+                                            <li class="list-group-item"> <a
+                                                    href="https://codelapan.com/post/membuat-aplikasi-video-conference-di-laravel-dengan-vonage-video-api"
+                                                    class="text-dark">Membuat Aplikasi Video Conference Di Laravel
+                                                    Dengan Vonage Video API</a> </li>
+                                            <li class="list-group-item"> <a
+                                                    href="https://codelapan.com/post/implementasi-laravel-google-fonts-package-by-spatie"
+                                                    class="text-dark">Implementasi Laravel Google Fonts Package by
+                                                    Spatie</a> </li>
+                                            <li class="list-group-item"> <a
+                                                    href="https://codelapan.com/post/mempercantik-tampilan-route-laravel-dengan-pretty-routes"
+                                                    class="text-dark">Mempercantik Tampilan Route Laravel dengan Pretty
+                                                    Routes Package</a> </li>
+                                            <li class="list-group-item"> <a
+                                                    href="https://codelapan.com/post/cara-generate-atau-export-excel-di-laravel"
+                                                    class="text-dark">Cara Generate Atau Export Excel Di Laravel</a>
+                                            </li>
+                                            <li class="list-group-item"> <a
+                                                    href="https://codelapan.com/post/soft-delete-laravel"
+                                                    class="text-dark">Tutorial Lengkap Cara Menggunakan Soft Delete di
+                                                    Laravel</a> </li>
+                                            <li class="list-group-item"> <a
+                                                    href="https://codelapan.com/post/laravel-notification"
+                                                    class="text-dark">Menampilkan Notification di Laravel 8 dengan
+                                                    Laravel Notify Package</a> </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card bg-transparent border-0 rounded-3 mb-3">
+                                <script async
+                                    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6343066734412114"
+                                    crossorigin="anonymous"></script> <ins class="adsbygoogle" style="display:block"
+                                    data-ad-client="ca-pub-6343066734412114" data-ad-slot="6611024356"
+                                    data-ad-format="auto" data-full-width-responsive="true"></ins>
+                                <script>
+                                    (adsbygoogle = window.adsbygoogle || []).push({});
+
+                                </script>
+                            </div>
+                            <div class="card bg-light rounded-3 mb-3">
+                                <div class="card-header bg-transparent text-dark rounded fw-bold fs-5 text-center">
+                                    Bookmark </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table text-dark">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Windows</th>
+                                                    <th scope="col">Linux</th>
+                                                    <th scope="col">Mac</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Ctrl + D</td>
+                                                    <td>Ctrl + D</td>
+                                                    <td>⌘ + D</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card bg-light rounded-3 mb-3">
+                                <div class="card-header bg-transparent rounded text-dark fw-bold fs-5 text-center">
+                                    Follow us </div>
+                                <div class="card-body text-center">
+                                    <div class="social-links"> <a href="https://www.facebook.com/codelapan"
+                                            class="mt-1 rounded-circle" target="_blank" rel="noreferrer"
+                                            aria-label="Facebook"> <svg xmlns="http://www.w3.org/2000/svg" width="1em"
+                                                height="1em" fill="currentColor" class="bi bi-facebook"
+                                                viewBox="0 0 16 16">
+                                                <path
+                                                    d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+                                            </svg> </a> <a href="https://instagram.com/codelapancom"
+                                            class="mt-1 rounded-circle" target="_blank" rel="noreferrer"
+                                            aria-label="Instagram"> <svg xmlns="http://www.w3.org/2000/svg" width="1em"
+                                                height="1em" fill="currentColor" class="bi bi-instagram"
+                                                viewBox="0 0 16 16">
+                                                <path
+                                                    d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />
+                                            </svg> </a> <a href="https://twitter.com/codelapan"
+                                            class="mt-1 rounded-circle" target="_blank" rel="noreferrer"
+                                            aria-label="Twitter"> <svg xmlns="http://www.w3.org/2000/svg" width="1em"
+                                                height="1em" fill="currentColor" class="bi bi-twitter"
+                                                viewBox="0 0 16 16">
+                                                <path
+                                                    d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" />
+                                            </svg> </a> <a href="https://t.me/codelapan" class="mt-1 rounded-circle"
+                                            target="_blank" rel="noreferrer" aria-label="Telegram"> <svg
+                                                xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+                                                fill="currentColor" class="bi bi-telegram" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z" />
+                                            </svg> </a> <a href="https://codelapan.com/rss-feed"
+                                            class="mt-1 rounded-circle" target="_blank" rel="noreferrer"
+                                            aria-label="Telegram"> <svg xmlns="http://www.w3.org/2000/svg" width="1em"
+                                                height="1em" fill="currentColor" class="bi bi-rss" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                                                <path
+                                                    d="M5.5 12a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm-3-8.5a1 1 0 0 1 1-1c5.523 0 10 4.477 10 10a1 1 0 1 1-2 0 8 8 0 0 0-8-8 1 1 0 0 1-1-1zm0 4a1 1 0 0 1 1-1 6 6 0 0 1 6 6 1 1 0 1 1-2 0 4 4 0 0 0-4-4 1 1 0 0 1-1-1z" />
+                                            </svg> </a> </div>
+                                </div>
+                            </div>
+                            <div class="card bg-light mb-3 rounded-3">
+                                <div class="card-header d-flex justify-content-between text-dark fw-bold fs-5"> Favorit
+                                    <a href="https://codelapan.com/top"><small>See All</small></a> </div>
+                                <ul class="list-group list-group-flush mb-2">
+                                    <li class="list-group-item bg-transparent"> <a
+                                            href="https://codelapan.com/post/membuat-rest-api-crud-di-laravel-8-dengan-sanctum"
+                                            class="post-title">Membuat REST API CRUD di Laravel 8 dengan Sanctum</a>
+                                        <div class="d-flex justify-content-between mt-3"> <small class="text-muted">18
+                                                September 2021</small> <small class="text-muted">5013 views </small>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item bg-transparent"> <a
+                                            href="https://codelapan.com/post/crud-laravel-8-jetstream-livewire"
+                                            class="post-title">Tutorial CRUD Laravel 8 dengan Jetstream Livewire</a>
+                                        <div class="d-flex justify-content-between mt-3"> <small class="text-muted">4
+                                                Juni 2021</small> <small class="text-muted">4529 views </small> </div>
+                                    </li>
+                                    <li class="list-group-item bg-transparent"> <a
+                                            href="https://codelapan.com/post/cara-install-ssl-certificate-di-xampp"
+                                            class="post-title">Cara Install SSL Certificate di XAMPP</a>
+                                        <div class="d-flex justify-content-between mt-3"> <small class="text-muted">6
+                                                Oktober 2020</small> <small class="text-muted">4467 views </small>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item bg-transparent"> <a
+                                            href="https://codelapan.com/post/cara-menggunakan-sweet-alert-di-laravel-8"
+                                            class="post-title">Contoh Cara Menggunakan Sweet Alert di Laravel 8</a>
+                                        <div class="d-flex justify-content-between mt-3"> <small class="text-muted">27
+                                                Agustus 2021</small> <small class="text-muted">4461 views </small>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item bg-transparent"> <a
+                                            href="https://codelapan.com/post/laravel-8-rest-api-authentication-dengan-sanctum"
+                                            class="post-title">Laravel 8: REST API Authentication dengan Sanctum</a>
+                                        <div class="d-flex justify-content-between mt-3"> <small class="text-muted">17
+                                                September 2021</small> <small class="text-muted">3962 views </small>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div class="modal fade" id="shareModal" tabindex="-1" aria-labelledby="shareModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="shareModalLabel">Share</h5> <button type="button" class="btn-close"
+                        data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="card border-0" style="max-width: 540px;">
+                        <div class="row g-0">
+                            <div class="col-md-4"> <img
+                                    data-src="https://codelapan.com/storage/photos/3/Cover/laravel email attachment.png"
+                                    height="390" width="730" class="card-img-top rounded img-fluid lazyload"
+                                    loading="lazy" alt="Cara Kirim Email dengan Attachment di Laravel 8"> </div>
+                            <div class="col-md-8">
+                                <div class="card-body text-mobile">
+                                    <p class="card-text"><small class="text-muted">Cara Kirim Email dengan Attachment di
+                                            Laravel 8</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="shareModal">
+                    <ul>
+                        <li> <a href="https://www.facebook.com/sharer/sharer.php?u=https://codelapan.com/post/cara-kirim-email-dengan-attachment-di-laravel-8"
+                                class="text-center text-dark" target="_blank" rel="noreferrer"
+                                title="Share this post on Facebook" aria-label="FacebookShare"> <img
+                                    data-src="https://codelapan.com/front/img/facebook.png"
+                                    class="icon-share rounded-circle shadow-sm me-2 mb-2 lazyload" style="width: 43px"
+                                    alt="Facebook"> <small>Facebook</small> </a> </li>
+                        <li> <a href="whatsapp://send?text=https://codelapan.com/post/cara-kirim-email-dengan-attachment-di-laravel-8"
+                                class="text-center text-dark" target="_blank" rel="noreferrer"
+                                title="Share this post on Whatsapp" aria-label="WhatsappShare"> <img
+                                    data-src="https://codelapan.com/front/img/whatsapp.png"
+                                    class="icon-share rounded-circle shadow-sm me-2 mb-2 lazyload" style="width: 43px"
+                                    alt="Whatsapp"> <small>Whatsapp</small> </a> </li>
+                        <li> <a href="https://twitter.com/intent/tweet?text=https://codelapan.com/post/cara-kirim-email-dengan-attachment-di-laravel-8"
+                                class="text-center text-dark" target="_blank" rel="noreferrer"
+                                title="Share this post on Twitter" aria-label="twitterShare"> <img
+                                    data-src="https://codelapan.com/front/img/twitter.png"
+                                    class="icon-share rounded-circle shadow-sm me-2 mb-2 lazyload" style="width: 43px"
+                                    alt="Twitter"> <small>Twitter</small> </a> </li>
+                        <li> <a href="https://t.me/share/url?url=https://codelapan.com/post/cara-kirim-email-dengan-attachment-di-laravel-8"
+                                class="text-center text-dark" target="_blank" rel="noreferrer"
+                                title="Share this post on Telegram" aria-label="telegramShare"> <img
+                                    data-src="https://codelapan.com/front/img/telegram.png"
+                                    class="icon-share rounded-circle shadow-sm me-2 mb-2 lazyload" style="width: 43px"
+                                    alt="Telegram"> <small>Telegram</small> </a> </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="action" onclick="actionToggle();"> <span data-bs-toggle="tooltip" data-bs-placement="right"
+            title="Change Font Size"> <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+                fill="currentColor" class="bi bi-fonts" viewBox="0 0 16 16">
+                <path
+                    d="M12.258 3h-8.51l-.083 2.46h.479c.26-1.544.758-1.783 2.693-1.845l.424-.013v7.827c0 .663-.144.82-1.3.923v.52h4.082v-.52c-1.162-.103-1.306-.26-1.306-.923V3.602l.431.013c1.934.062 2.434.301 2.693 1.846h.479L12.258 3z" />
+            </svg> </span>
+        <ul>
+            <li> <svg xmlns="http://www.w3.org/2000/svg" width="1.6em" height="1.6em" class="icon bi bi-fonts"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M12.258 3h-8.51l-.083 2.46h.479c.26-1.544.758-1.783 2.693-1.845l.424-.013v7.827c0 .663-.144.82-1.3.923v.52h4.082v-.52c-1.162-.103-1.306-.26-1.306-.923V3.602l.431.013c1.934.062 2.434.301 2.693 1.846h.479L12.258 3z" />
+                </svg> <button type="button" class="border-0 bg-transparent text-dark" onclick="large()">Large Font
+                    Size</button> </li>
+            <li> <svg xmlns="http://www.w3.org/2000/svg" width="1.6em" height="1.6em" class="icon bi bi-fonts"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M12.258 3h-8.51l-.083 2.46h.479c.26-1.544.758-1.783 2.693-1.845l.424-.013v7.827c0 .663-.144.82-1.3.923v.52h4.082v-.52c-1.162-.103-1.306-.26-1.306-.923V3.602l.431.013c1.934.062 2.434.301 2.693 1.846h.479L12.258 3z" />
+                </svg> <button type="button" class="border-0 bg-transparent text-dark" onclick="normal()">Medium Font
+                    Size</button> </li>
+            <li> <svg xmlns="http://www.w3.org/2000/svg" width="1.6em" height="1.6em" class="icon bi bi-fonts"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M12.258 3h-8.51l-.083 2.46h.479c.26-1.544.758-1.783 2.693-1.845l.424-.013v7.827c0 .663-.144.82-1.3.923v.52h4.082v-.52c-1.162-.103-1.306-.26-1.306-.923V3.602l.431.013c1.934.062 2.434.301 2.693 1.846h.479L12.258 3z" />
+                </svg> <button type="button" class="border-0 bg-transparent text-dark" onclick="small()">Small Font
+                    Size</button> </li>
+        </ul>
+    </div>
+    <footer id="footer" class="footer border-top">
+        <div class="container d-lg-flex d-xl-flex justify-content-between pt-4">
+            <div class="copyright"> &copy; Copyright <strong><span>Codelapan</span></strong> by <a
+                    href="https://devinito.com">Devinito</a>. All Rights Reserved </div>
+            <div class="greeting"> <span> made with <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                        fill="red" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" /> </svg> in
+                    East Java & Yogyakarta, ID </span> </div>
+        </div>
+    </footer>
+    <div id="theme" class="mode d-none d-lg-block" aria-label="Dark/Light Mode" title="Dark/Light Mode"> <span
+            onclick="setDarkMode()" id="darkBtn" data-bs-toggle="tooltip" data-bs-placement="right" title="Change Mode">
+            <svg xmlns="http://www.w3.org/2000/svg" width="0.9em" height="0.9em" fill="currentColor" class="bi bi-moon"
+                viewBox="0 0 16 16">
+                <path
+                    d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278zM4.858 1.311A7.269 7.269 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.316 7.316 0 0 0 5.205-2.162c-.337.042-.68.063-1.029.063-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286z" />
+            </svg> </span> </div>
+    <div class="d-none d-lg-block"> <a href="#" class="back-to-top d-flex align-items-center justify-content-center"
+            aria-label="back to top"> <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" fill="#fff"
+                class="bi bi-arrow-up" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z" />
+            </svg> </a> </div>
+    <script src="https://codelapan.com/bundle/app.js"></script>
+    <script src="/livewire/livewire.js?id=83b555bb3e243bc25f35" data-turbo-eval="false" data-turbolinks-eval="false">
+    </script>
+    <script data-turbo-eval="false" data-turbolinks-eval="false">
+        window.livewire = new Livewire();
+        window.Livewire = window.livewire;
+        window.livewire_app_url = '';
+        window.livewire_token = '5a3ApjVZmMIUihShJzPyBNP1kwM5zrJoWKEX52R5';
+        window.deferLoadingAlpine = function (callback) {
+            window.addEventListener('livewire:load', function () {
+                callback();
+            });
+        };
+        let started = false;
+        window.addEventListener('alpine:initializing', function () {
+            if (!started) {
+                window.livewire.start();
+                started = true;
+            }
+        });
+        document.addEventListener("DOMContentLoaded", function () {
+            if (!started) {
+                window.livewire.start();
+                started = true;
+            }
+        });
+
+    </script>
+    <script type="text/javascript">
+        let clipboard = new ClipboardJS('.copyBtn');
+
+
+
+        clipboard.on('success', function (e) {
+
+            let trigger_button = e.trigger;
+
+            // update the tooltip title, get the tooltip instance, and show it
+
+            trigger_button.setAttribute('data-bs-original-title', 'Copied!');
+
+            let btn_tooltip = bootstrap.Tooltip.getInstance(trigger_button);
+
+            btn_tooltip.show();
+
+            // reset the tooltip title
+
+            trigger_button.setAttribute('data-bs-original-title', 'Copy to clipboard');
+
+
+
+        });
+
+    </script>
+    <script type="text/javascript">
+        var disqus_config = function () {
+
+            this.page.url = PAGE_URL;
+
+            this.page.identifier = PAGE_IDENTIFIER;
+
+        };
+
+
+
+        var disqus_observer = new IntersectionObserver(function (entries) {
+
+            // comments section reached
+
+            // start loading Disqus now
+
+            if (entries[0].isIntersecting) {
+
+                (function () {
+
+                    var d = document,
+                        s = d.createElement('script');
+
+                    s.src = 'https://codelapan.disqus.com/embed.js';
+
+                    s.setAttribute('data-timestamp', +new Date());
+
+                    (d.head || d.body).appendChild(s);
+
+                })();
+
+
+
+                // once executed, stop observing
+
+                disqus_observer.disconnect();
+
+            }
+
+        }, {
+            threshold: [0]
+        });
+
+        disqus_observer.observe(document.querySelector("#disqus_thread"));
+
+    </script>
+    <script type="text/javascript">
+        const elements = document.querySelectorAll('.card-body img')
+
+        for (const element of elements) {
+
+            element.setAttribute('data-sizes', 'auto')
+
+            element.classList.add('lazyload')
+
+            element.classList.add('shadow')
+
+        }
+
+    </script>
+</body>
+
+</html>
