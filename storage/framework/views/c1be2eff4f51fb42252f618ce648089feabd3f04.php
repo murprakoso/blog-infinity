@@ -31,6 +31,8 @@
     <?php echo $__env->make('layouts._blog._navbar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <!-- Navigation:end -->
 
+    <?php echo $__env->yieldPushContent('hero'); ?>
+
     <!-- Page Content -->
     <div class="container">
         <!-- content:start -->

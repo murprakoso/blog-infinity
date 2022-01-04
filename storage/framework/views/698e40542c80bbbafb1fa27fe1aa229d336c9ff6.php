@@ -1,6 +1,6 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white fixed-top shadow-nav">
     <div class="container">
-        <a class="navbar-brand font-weight-bold text-gray-900" href="<?php echo e(route('blog.home')); ?>">
+        <a class="navbar-brand font-weight-bold text-gray-900" href="<?php echo e(route('home')); ?>">
             <i class="fas fa-laptop"></i>
             <?php echo e(config('app.name')); ?>
 
@@ -16,7 +16,7 @@
                 <!-- nav-home:start -->
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo e(route('blog.home')); ?>">
-                        <?php echo e(trans('blog.menu.home')); ?>
+                        <?php echo e(trans('blog.menu.posts')); ?>
 
                     </a>
                 </li>

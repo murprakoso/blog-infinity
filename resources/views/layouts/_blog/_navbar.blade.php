@@ -1,6 +1,6 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white fixed-top shadow-nav">
     <div class="container">
-        <a class="navbar-brand font-weight-bold text-gray-900" href="{{ route('blog.home') }}">
+        <a class="navbar-brand font-weight-bold text-gray-900" href="{{ route('home') }}">
             <i class="fas fa-laptop"></i>
             {{ config('app.name') }}
         </a>
@@ -15,7 +15,7 @@
                 <!-- nav-home:start -->
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('blog.home') }}">
-                        {{ trans('blog.menu.home') }}
+                        {{ trans('blog.menu.posts') }}
                     </a>
                 </li>
                 <!-- nav-home:end -->

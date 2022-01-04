@@ -1,9 +1,9 @@
-<?php $__env->startSection('title', trans('blog.menu.home')); ?>
+<?php $__env->startSection('title', trans('blog.menu.posts')); ?>
 
 <?php $__env->startSection('content'); ?>
     <!-- page title -->
     <h2 class="my-3">
-        <?php echo e(trans('blog.menu.home')); ?>
+        <?php echo e(trans('blog.menu.posts')); ?>
 
     </h2>
     <!-- Breadcrumbs:start -->

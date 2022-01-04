@@ -4,6 +4,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FileManagerController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RoleController;
@@ -24,8 +25,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/localization/{language}', LocalizationController::class)->name('localization.switch');
 
+// Home
+Route::get('/', [HomeController::class, 'index'])->name('home');
 // Blog
-Route::get('/', [BlogController::class, 'home'])->name('blog.home');
+Route::get('/posts', [BlogController::class, 'home'])->name('blog.home');
 // Categories
 Route::get('/categories', [BlogController::class, 'showCategories'])->name('blog.categories');
 // Tags

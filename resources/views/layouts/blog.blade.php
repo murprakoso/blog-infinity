@@ -31,6 +31,8 @@
     @include('layouts._blog._navbar')
     <!-- Navigation:end -->
 
+    @stack('hero')
+
     <!-- Page Content -->
     <div class="container">
         <!-- content:start -->

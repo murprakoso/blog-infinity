@@ -1,11 +1,11 @@
 @extends('layouts.blog')
 
-@section('title', trans('blog.menu.home'))
+@section('title', trans('blog.menu.posts'))
 
 @section('content')
     <!-- page title -->
     <h2 class="my-3">
-        {{ trans('blog.menu.home') }}
+        {{ trans('blog.menu.posts') }}
     </h2>
     <!-- Breadcrumbs:start -->
     {{ Breadcrumbs::render('blog_home') }}

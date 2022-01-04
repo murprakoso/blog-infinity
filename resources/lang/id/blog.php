@@ -22,6 +22,7 @@ return [
     ],
     'menu' => [
         'home' => "Beranda",
+        'posts' => "Posting",
         'categories' => "Kategori",
         'tags' => "Tag",
         'dashboard' => 'Dasbor',

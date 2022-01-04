@@ -22,6 +22,7 @@ return [
     ],
     'menu' => [
         'home' => "Home",
+        'posts' => "Posts",
         'categories' => "Categories",
         'tags' => "Tags",
         'dashboard' => 'Dashboard',
