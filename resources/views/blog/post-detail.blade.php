@@ -48,6 +48,14 @@
                 {!! $post->content !!}
             </div>
             <!-- Post Content:end -->
+            <div class="mt-1">
+                <span class="text-gray-800">Tags:</span>
+                @foreach ($post->tags as $tag)
+                    <a href="{{ route('blog.posts.tag', ['slug' => $tag->slug]) }}" class="btn btn-sm btn-secondary">
+                        #{{ $tag->title }}
+                    </a>
+                @endforeach
+            </div>
             <hr class="mt-5">
             <div id="disqus_thread"></div>
         </div>

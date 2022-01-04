@@ -15,7 +15,7 @@
         <div class="col">
             @forelse ($tags as $tag)
                 <a href="{{ route('blog.posts.tag', ['slug' => $tag->slug]) }}"
-                    class="btn btn-light btn-sm">#{{ $tag->title }}</a>
+                    class="btn btn-light btn-sm mr-2 shadow-sm text-gray-800">#{{ $tag->title }}</a>
             @empty
                 <h3 class="text-center">
                     {{ trans('blog.no_data.tags') }}

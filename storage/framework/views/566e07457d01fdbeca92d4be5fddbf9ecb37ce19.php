@@ -17,7 +17,7 @@
         <?php $__empty_1 = true; $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
             <!-- true -->
             <div class="col-lg-4 col-sm-6 portfolio-item">
-                <div class="card h-100">
+                <div class="card h-100 shadow-sm">
                     <!-- thumbnail:start -->
                     <?php if(file_exists(public_path($category->thumbnail))): ?>
                         <img class="card-img-top img-categories" src="<?php echo e(asset($category->thumbnail)); ?>"

@@ -52,6 +52,15 @@
 
             </div>
             <!-- Post Content:end -->
+            <div class="mt-1">
+                <span class="text-gray-800">Tags:</span>
+                <?php $__currentLoopData = $post->tags; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tag): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <a href="<?php echo e(route('blog.posts.tag', ['slug' => $tag->slug])); ?>" class="btn btn-sm btn-secondary">
+                        #<?php echo e($tag->title); ?>
+
+                    </a>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            </div>
             <hr class="mt-5">
             <div id="disqus_thread"></div>
         </div>

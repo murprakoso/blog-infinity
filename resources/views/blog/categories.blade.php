@@ -17,7 +17,7 @@
         @forelse ($categories as $category)
             <!-- true -->
             <div class="col-lg-4 col-sm-6 portfolio-item">
-                <div class="card h-100">
+                <div class="card h-100 shadow-sm">
                     <!-- thumbnail:start -->
                     @if (file_exists(public_path($category->thumbnail)))
                         <img class="card-img-top img-categories" src="{{ asset($category->thumbnail) }}"
