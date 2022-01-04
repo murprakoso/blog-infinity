@@ -189,3 +189,9 @@ Breadcrumbs::for('edit_user', function (BreadcrumbTrail $trail, $user) {
     $trail->push("Edit", route('users.edit', ['user' => $user]));
     $trail->push($user->name, route('users.edit', ['user' => $user]));
 });
+
+// Dashboard > Profile
+Breadcrumbs::for('profile', function (BreadcrumbTrail $trail) {
+    $trail->parent('dashboard');
+    $trail->push("Profile", route('profile.index'));
+});

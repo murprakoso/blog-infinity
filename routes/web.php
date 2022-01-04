@@ -7,6 +7,7 @@ use App\Http\Controllers\FileManagerController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\UserController;
@@ -68,4 +69,6 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['web', 'auth']], functio
     // roles
     Route::get('/roles/select', [RoleController::class, 'select'])->name('roles.select');
     Route::resource('/roles', RoleController::class);
+
+    Route::resource('/profile', ProfileController::class)->only(['index', 'update']);
 });
