@@ -7,7 +7,7 @@ return [
         'index' => "Dashbor",
     ],
     'greeting' => [
-        'welcome' => "Selamat datang :name"
+        'welcome' => "Selamat datang, :name"
     ],
     'menu' => [
         'master' => 'Master',

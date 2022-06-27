@@ -7,7 +7,7 @@ return [
         'index' => "Dashboard",
     ],
     'greeting' => [
-        'welcome' => "Welcome :name"
+        'welcome' => "Welcome, :name"
     ],
     'menu' => [
         'master' => 'Master',
